@@ -14,17 +14,14 @@
 		730544C32CA1959200F77233 /* JoiefullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544C22CA1959200F77233 /* JoiefullTests.swift */; };
 		730544CD2CA1959200F77233 /* JoiefullUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544CC2CA1959200F77233 /* JoiefullUITests.swift */; };
 		730544CF2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544CE2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift */; };
-		730544DF2CA1C60800F77233 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544DE2CA1C60800F77233 /* URLRequest.swift */; };
-		730544E12CA1D03900F77233 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E02CA1D03900F77233 /* HTTPMethod.swift */; };
 		730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */; };
 		730544E52CA1D09200F77233 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E42CA1D09200F77233 /* NetworkService.swift */; };
-		730544E82CA1D16900F77233 /* GetClothesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E72CA1D16900F77233 /* GetClothesResponseModel.swift */; };
 		730544EA2CA1D68700F77233 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E92CA1D68700F77233 /* Clothes.swift */; };
-		730544EC2CA1EA4E00F77233 /* ClotheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EB2CA1EA4E00F77233 /* ClotheStorage.swift */; };
 		730544EF2CA1EBDA00F77233 /* ClothesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ClothesViewModel.swift */; };
 		730544F42CA2078100F77233 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* CategoryRow.swift */; };
 		73A092852CA573C300385F22 /* ClothesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ClothesDetail.swift */; };
 		73A092872CA5753E00385F22 /* ClothesHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092862CA5753E00385F22 /* ClothesHome.swift */; };
+		73A092892CA61D0600385F22 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092882CA61D0600385F22 /* NetworkError.swift */; };
 		73C815FE2CA20CC300875B2F /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C815FD2CA20CC300875B2F /* CategoryItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,17 +53,14 @@
 		730544C82CA1959200F77233 /* JoiefullUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JoiefullUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		730544CC2CA1959200F77233 /* JoiefullUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullUITests.swift; sourceTree = "<group>"; };
 		730544CE2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		730544DE2CA1C60800F77233 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
-		730544E02CA1D03900F77233 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
 		730544E42CA1D09200F77233 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		730544E72CA1D16900F77233 /* GetClothesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClothesResponseModel.swift; sourceTree = "<group>"; };
 		730544E92CA1D68700F77233 /* Clothes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
-		730544EB2CA1EA4E00F77233 /* ClotheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClotheStorage.swift; sourceTree = "<group>"; };
 		730544EE2CA1EBDA00F77233 /* ClothesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesViewModel.swift; sourceTree = "<group>"; };
 		730544F32CA2078100F77233 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		73A092842CA573C300385F22 /* ClothesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesDetail.swift; sourceTree = "<group>"; };
 		73A092862CA5753E00385F22 /* ClothesHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesHome.swift; sourceTree = "<group>"; };
+		73A092882CA61D0600385F22 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		73C815FD2CA20CC300875B2F /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,10 +152,9 @@
 		730544DD2CA1C5E400F77233 /* HTTPClient */ = {
 			isa = PBXGroup;
 			children = (
-				730544DE2CA1C60800F77233 /* URLRequest.swift */,
-				730544E02CA1D03900F77233 /* HTTPMethod.swift */,
 				730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */,
 				730544E42CA1D09200F77233 /* NetworkService.swift */,
+				73A092882CA61D0600385F22 /* NetworkError.swift */,
 			);
 			path = HTTPClient;
 			sourceTree = "<group>";
@@ -169,9 +162,7 @@
 		730544E62CA1D13C00F77233 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				730544E72CA1D16900F77233 /* GetClothesResponseModel.swift */,
 				730544E92CA1D68700F77233 /* Clothes.swift */,
-				730544EB2CA1EA4E00F77233 /* ClotheStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,15 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730544E12CA1D03900F77233 /* HTTPMethod.swift in Sources */,
 				73A092872CA5753E00385F22 /* ClothesHome.swift in Sources */,
 				730544EF2CA1EBDA00F77233 /* ClothesViewModel.swift in Sources */,
 				73A092852CA573C300385F22 /* ClothesDetail.swift in Sources */,
-				730544EC2CA1EA4E00F77233 /* ClotheStorage.swift in Sources */,
-				730544DF2CA1C60800F77233 /* URLRequest.swift in Sources */,
 				730544B42CA1959000F77233 /* ContentView.swift in Sources */,
 				730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */,
-				730544E82CA1D16900F77233 /* GetClothesResponseModel.swift in Sources */,
+				73A092892CA61D0600385F22 /* NetworkError.swift in Sources */,
 				73C815FE2CA20CC300875B2F /* CategoryItem.swift in Sources */,
 				730544E52CA1D09200F77233 /* NetworkService.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Clothes.swift in Sources */,

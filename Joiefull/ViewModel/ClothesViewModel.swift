@@ -9,32 +9,28 @@ import Foundation
 
 class ClothesViewModel: ObservableObject {
     @Published var clothes: [Clothes] = []
+    @Published var errorMessage: String? = nil
+    private var networkService: NetworkServicing
+    
+    init(networkService: NetworkServicing = NetworkService()) {
+        self.networkService = networkService
+    }
     
     func fetchClothes() {
-        guard let url = URL(string: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/api/clothes.json") else {
-            print("Invalid URL")
-            return
-        }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching data: \(error)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data returned")
-                return
-            }
-            
+        Task {
             do {
-                let decodedData = try JSONDecoder().decode([Clothes].self, from: data)
+                let clothesData = try await networkService.getAllClothes()
+                print("Données récupérées : \(clothesData)")
                 DispatchQueue.main.async {
-                    self.clothes = decodedData
+                    self.clothes = clothesData
                 }
-            } catch let decodingError {
-                print("Error decoding data: \(decodingError)")
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMessage = error.localizedDescription
+                    print("Erreur lors de la récupération : \(error.localizedDescription)")
+                }
             }
-        }.resume()
+        }
     }
 
 }
