@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetClothesResponseModel: Decodable {
-    let clothes: [Clothe]
+    let clothes: [Clothes]
 }
 
 struct Picture: Decodable, Hashable {

@@ -8,5 +8,5 @@
 import Foundation
 
 class ClotheStorage {
-    var clothes: [Clothe] = []
+    var clothes: [Clothes] = []
 }
