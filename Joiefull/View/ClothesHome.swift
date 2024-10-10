@@ -9,27 +9,59 @@ import SwiftUI
 
 struct ClothesHome: View {
     @StateObject var viewModel = ClothesViewModel()
+    @State private var selectedClothes: Clothes?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(groupedClothes.keys.sorted(), id: \.self) { key in
-                    if let items = groupedClothes[key] {
-                        CategoryRow(categoryName: key, items: items)
+            HStack {
+                ClothesList(viewModel: viewModel, selectedClothes: $selectedClothes)
+                if horizontalSizeClass == .regular {
+                    if let clothes = selectedClothes {
+                        Group {
+                            VStack {
+                                HStack {
+                                    Button(action: {
+                                        withAnimation {
+                                            selectedClothes = nil
+                                        }
+                                    }) {
+                                        Image(systemName: "arrow.left")
+                                            .foregroundColor(.blue)
+                                        Text("Back")
+                                            .foregroundColor(.blue)
+                                    }
+                                    Spacer()
+                                }
+                                ClothesDetail(clothes: clothes)
+                            }
+                            .frame(maxWidth: UIScreen.main.bounds.width / 3)
+                            .transition(.slide)
+                        }
                     }
                 }
-            }
-            .listStyle(.plain)
-            .onAppear {
+            }.onAppear {
                 viewModel.fetchClothes()
-            }
+        }
         }
     }
-    private var groupedClothes: [String: [Clothes]] {
-        Dictionary(grouping: viewModel.clothes) { $0.category.rawValue }
+}
+
+struct ClothesList: View {
+    @ObservedObject var viewModel: ClothesViewModel
+    @Binding var selectedClothes: Clothes?
+    
+    var body: some View {
+        List {
+            ForEach(viewModel.categories.keys.sorted(), id: \.self) { key in
+                CategoryRow(categoryName: key, items: viewModel.categories[key]!, selectedClothes: $selectedClothes)
+                
+            }
+        }.listStyle(.plain)
     }
 }
 
 #Preview {
-    ClothesHome()
+   ClothesHome()
 }
