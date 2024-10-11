@@ -38,13 +38,14 @@ struct ClothesHome: View {
                             }
                             .frame(maxWidth: UIScreen.main.bounds.width / 3)
                             .transition(.slide)
+                            .padding()
                         }
                     }
                 }
             }.onAppear {
                 viewModel.fetchClothes()
         }
-        }
+        }.accessibilityLabel("Home page with all the catalogue")
     }
 }
 

@@ -32,12 +32,13 @@ struct CategoryRow: View {
                         } else {
                             CategoryItem(clothes: clothes)
                                 .padding(2)
-                                .background(selectedClothes?.id == clothes.id ? Color.blue : Color.clear)
+                                .background(selectedClothes?.id == clothes.id ? Color.blue.opacity(0.5) : Color.clear)
                                 .cornerRadius(16)
                                 .onTapGesture {
                                     print("selected\(clothes.name)")
                                     selectedClothes = clothes
                                 }
+                                
                         }
                     }
                 }

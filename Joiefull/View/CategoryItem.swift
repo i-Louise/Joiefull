@@ -12,68 +12,72 @@ struct CategoryItem: View {
     @State private var selectedClothes: Clothes?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ZStack(alignment: .bottomTrailing) {
-                AsyncImage(url: URL(string: clothes.picture.url)) { phase in
+        
+            VStack(alignment: .leading) {
+                ZStack(alignment: .bottomTrailing) {
                     
-                    switch phase {
-                    case .failure:
-                        Image(systemName: "photo")
-                            .font(.largeTitle)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    default:
-                        ProgressView()
+                    AsyncImage(url: URL(string: clothes.picture.url)) { phase in
+                        
+                        switch phase {
+                        case .failure:
+                            Image(systemName: "photo")
+                                .font(.largeTitle)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        default:
+                            ProgressView()
+                        }
+                    }
+                    .frame(width: 200, height: 200)
+                    .clipShape(.rect(cornerRadius: 16))
+                    .accessibilityHint(Text("\(clothes.picture.description)"))
+                    
+                    HStack(spacing: 4) {
+                        Image(systemName: "heart")
+                            .font(.body)
+                        Text("\(clothes.likes)")
+                            .font(.body)
+                    }
+                    .padding(6)
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .padding([.bottom, .trailing], 8)
+                }
+                
+                VStack {
+                    HStack {
+                        Text(clothes.name)
+                            .font(.body)
+                            .foregroundStyle(.black)
+                            .frame(width: 150, alignment: .leading)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        Spacer()
+                        HStack(spacing: 2) {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.orange)
+                            Text("4")
+                                .foregroundColor(.gray)
+                                .font(.body)
+                            
+                        }
+                    }
+                    HStack {
+                        Text("\(String(format: "%.2f", clothes.price))€")
+                            .font(.body)
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text("\(String(format: "%.2f", clothes.original_price))€")
+                            .strikethrough()
+                            .foregroundColor(.gray)
+                            .font(.body)
                     }
                 }
-                .frame(width: 200, height: 200)
-                .clipShape(.rect(cornerRadius: 16))
-                
-                HStack(spacing: 4) {
-                    Image(systemName: "heart")
-                        .font(.system(size: 14))
-                    Text("\(clothes.likes)")
-                        .font(.system(size: 14))
-                }
-                .padding(6)
-                .background(Color.white)
-                .cornerRadius(30)
-                .padding([.bottom, .trailing], 8)
             }
             
-            VStack {
-                HStack {
-                    Text(clothes.name)
-                        .font(.system(size: 14))
-                        .foregroundStyle(.black)
-                        .frame(width: 150, alignment: .leading)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                    Spacer()
-                    HStack(spacing: 2) {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.orange)
-                        Text("4")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14))
-
-                    }
-                }
-                HStack {
-                    Text("\(String(format: "%.2f", clothes.price))€")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                    Text("\(String(format: "%.2f", clothes.original_price))€")
-                        .strikethrough()
-                        .foregroundColor(.gray)
-                        .font(.system(size: 14))
-                }
-            }
-        }
-        .padding()
+            .padding()
         
     }
 }
