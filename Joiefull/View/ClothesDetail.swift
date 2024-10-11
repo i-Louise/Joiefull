@@ -10,6 +10,7 @@ import SwiftUI
 struct ClothesDetail: View {
     var clothes: Clothes
     @State private var comment: String = ""
+    @State private var isShareSheetShowing = false
     
     var body: some View {
         
@@ -39,11 +40,22 @@ struct ClothesDetail: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                Image("ShareIcon")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30)
-                                    .padding()
+                                Button(action: {
+                                    isShareSheetShowing = true
+                                }) {
+                                    Image("ShareIcon")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                        .padding(10)
+                                        .background(Color.white.opacity(0.8))
+                                        .clipShape(.rect(cornerRadius: 20))
+                                        .shadow(radius: 4)
+                                        .padding()
+                                }
+                                .sheet(isPresented: $isShareSheetShowing, content: {
+                                    ActivityViewController(activityItems: [clothes.name, URL(string: clothes.picture.url)!])
+                                })
                             }
                             Spacer()
                             HStack {
@@ -55,8 +67,9 @@ struct ClothesDetail: View {
                                         .font(.body)
                                 }
                                 .padding(6)
-                                .background(Color.white)
+                                .background(Color.white.opacity(0.8))
                                 .cornerRadius(16)
+                                .shadow(radius: 4)
                                 .padding()
                             }
                         }
