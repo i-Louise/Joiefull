@@ -20,6 +20,11 @@
 		730544EF2CA1EBDA00F77233 /* ClothesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ClothesViewModel.swift */; };
 		730544F42CA2078100F77233 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* CategoryRow.swift */; };
 		7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */; };
+		7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */; };
+		7336F2252CB9536A00C06F89 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2242CB9536A00C06F89 /* UserRepository.swift */; };
+		7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2262CB9543100C06F89 /* PersistenceController.swift */; };
+		7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2282CB9552200C06F89 /* ReviewRepository.swift */; };
+		7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22A2CB9596800C06F89 /* DefaultData.swift */; };
 		73A092852CA573C300385F22 /* ClothesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ClothesDetail.swift */; };
 		73A092872CA5753E00385F22 /* ClothesHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092862CA5753E00385F22 /* ClothesHome.swift */; };
 		73A092892CA61D0600385F22 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092882CA61D0600385F22 /* NetworkError.swift */; };
@@ -60,6 +65,11 @@
 		730544EE2CA1EBDA00F77233 /* ClothesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesViewModel.swift; sourceTree = "<group>"; };
 		730544F32CA2078100F77233 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		7336F2222CB9490000C06F89 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7336F2242CB9536A00C06F89 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		7336F2262CB9543100C06F89 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		7336F2282CB9552200C06F89 /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
+		7336F22A2CB9596800C06F89 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		73A092842CA573C300385F22 /* ClothesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesDetail.swift; sourceTree = "<group>"; };
 		73A092862CA5753E00385F22 /* ClothesHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesHome.swift; sourceTree = "<group>"; };
 		73A092882CA61D0600385F22 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -94,6 +104,7 @@
 		730544A52CA1959000F77233 = {
 			isa = PBXGroup;
 			children = (
+				7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */,
 				730544B02CA1959000F77233 /* Joiefull */,
 				730544C12CA1959200F77233 /* JoiefullTests */,
 				730544CB2CA1959200F77233 /* JoiefullUITests */,
@@ -122,6 +133,7 @@
 				730544B32CA1959000F77233 /* ContentView.swift */,
 				730544B52CA1959200F77233 /* Assets.xcassets */,
 				730544B72CA1959200F77233 /* Preview Content */,
+				7336F2262CB9543100C06F89 /* PersistenceController.swift */,
 			);
 			path = Joiefull;
 			sourceTree = "<group>";
@@ -165,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				730544E92CA1D68700F77233 /* Clothes.swift */,
+				7336F2242CB9536A00C06F89 /* UserRepository.swift */,
+				7336F2282CB9552200C06F89 /* ReviewRepository.swift */,
+				7336F22A2CB9596800C06F89 /* DefaultData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,14 +337,19 @@
 				73A092872CA5753E00385F22 /* ClothesHome.swift in Sources */,
 				730544EF2CA1EBDA00F77233 /* ClothesViewModel.swift in Sources */,
 				73A092852CA573C300385F22 /* ClothesDetail.swift in Sources */,
+				7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */,
 				730544B42CA1959000F77233 /* ContentView.swift in Sources */,
 				730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */,
 				73A092892CA61D0600385F22 /* NetworkError.swift in Sources */,
 				73C815FE2CA20CC300875B2F /* CategoryItem.swift in Sources */,
 				7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */,
 				730544E52CA1D09200F77233 /* NetworkService.swift in Sources */,
+				7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */,
+				7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Clothes.swift in Sources */,
+				7336F2252CB9536A00C06F89 /* UserRepository.swift in Sources */,
 				730544F42CA2078100F77233 /* CategoryRow.swift in Sources */,
+				7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */,
 				730544B22CA1959000F77233 /* JoiefullApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,6 +674,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7336F2222CB9490000C06F89 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7336F2222CB9490000C06F89 /* Model.xcdatamodel */;
+			path = Joiefull.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 730544A62CA1959000F77233 /* Project object */;
 }

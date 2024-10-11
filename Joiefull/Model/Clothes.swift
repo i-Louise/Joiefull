@@ -14,6 +14,7 @@ struct Clothes: Hashable, Codable, Identifiable {
     let likes: Int
     let price: Double
     let original_price: Double
+    var isFavorite: Bool? = false
     
     var category: Category
     enum Category: String, CaseIterable, Codable {
