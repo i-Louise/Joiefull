@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkServicing {
-    func getAllClothes() async throws -> [Clothes]
+    func getAllArticles() async throws -> [Article]
 }
 
 class NetworkService: NetworkServicing {
@@ -18,7 +18,7 @@ class NetworkService: NetworkServicing {
         self.networkRequestExecutor = networkRequestExecutor
     }
     
-    func getAllClothes() async throws -> [Clothes] {
+    func getAllArticles() async throws -> [Article] {
         let urlString = "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/api/clothes.json"
         
         guard let url = URL(string: urlString) else {
@@ -31,8 +31,8 @@ class NetworkService: NetworkServicing {
         let data = try await networkRequestExecutor.execute(request: request)
         print("Données brutes reçues : \(String(data: data, encoding: .utf8) ?? "aucune donnée")")
         do {
-            let clothesData = try JSONDecoder().decode([Clothes].self, from: data)
-            return clothesData
+            let articlesData = try JSONDecoder().decode([Article].self, from: data)
+            return articlesData
         } catch {
             print("Erreur de décodage : \(error)")
             throw NetworkError.decodingError

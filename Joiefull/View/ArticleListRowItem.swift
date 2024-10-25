@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct CategoryItem: View {
-    var clothes: Clothes
-    @State private var selectedClothes: Clothes?
+struct ArticleListRowItem: View {
+    var article: Article
+    @ObservedObject var viewModel: ArticleViewModel
+    @State private var selectedArticle: Article?
     
     var body: some View {
         
             VStack(alignment: .leading) {
                 ZStack(alignment: .bottomTrailing) {
                     
-                    AsyncImage(url: URL(string: clothes.picture.url)) { phase in
+                    AsyncImage(url: URL(string: article.picture.url)) { phase in
                         
                         switch phase {
                         case .failure:
@@ -32,12 +33,12 @@ struct CategoryItem: View {
                     }
                     .frame(width: 200, height: 200)
                     .clipShape(.rect(cornerRadius: 16))
-                    .accessibilityHint(Text("\(clothes.picture.description)"))
+                    .accessibilityHint(Text("\(article.picture.description)"))
                     
                     HStack(spacing: 4) {
                         Image(systemName: "heart")
                             .font(.body)
-                        Text("\(clothes.likes)")
+                        Text("\(article.likes)")
                             .font(.body)
                     }
                     .padding(6)
@@ -48,7 +49,7 @@ struct CategoryItem: View {
                 
                 VStack {
                     HStack {
-                        Text(clothes.name)
+                        Text(article.name)
                             .font(.body)
                             .foregroundStyle(.black)
                             .frame(width: 150, alignment: .leading)
@@ -58,41 +59,43 @@ struct CategoryItem: View {
                         HStack(spacing: 2) {
                             Image(systemName: "star.fill")
                                 .foregroundColor(.orange)
-                            Text("4")
+                            Text("\(viewModel.rating)")
                                 .foregroundColor(.gray)
                                 .font(.body)
                             
                         }
                     }
                     HStack {
-                        Text("\(String(format: "%.2f", clothes.price))€")
+                        Text("\(String(format: "%.2f", article.price))€")
                             .font(.body)
                             .foregroundColor(.black)
                         Spacer()
-                        Text("\(String(format: "%.2f", clothes.original_price))€")
+                        Text("\(String(format: "%.2f", article.originalPrice))€")
                             .strikethrough()
                             .foregroundColor(.gray)
                             .font(.body)
                     }
                 }
             }
-            
+
             .padding()
         
     }
 }
 
 #Preview {
-    let testClothes = Clothes(
+    let context = PersistenceController.preview.container.viewContext
+    let viewModel = ArticleViewModel(context: context)
+    let testArticle = Article(
         id: 1,
         name: "Casual T-Shirt",
         likes: 10,
         price: 29.99,
-        original_price: 39.99,
+        originalPrice: 39.99,
         category: .tops,
-        picture: Clothes.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
+        picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
             description: "A casual t-shirt")
     )
-    @State var selectedClothes: Clothes?
-    return CategoryItem(clothes: testClothes)
+    @State var selectedArticle: Article?
+    return ArticleListRowItem(article: testArticle, viewModel: viewModel)
 }

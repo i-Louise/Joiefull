@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Clothes: Hashable, Codable, Identifiable {
+struct Article: Hashable, Codable, Identifiable {
     let id: Int
     let name: String
-    let likes: Int
+    var likes: Int
     let price: Double
-    let original_price: Double
-    var isFavorite: Bool? = false
+    let originalPrice: Double
+    var isFavorite: Bool = false
     
     var category: Category
     enum Category: String, CaseIterable, Codable {
@@ -28,5 +28,15 @@ struct Clothes: Hashable, Codable, Identifiable {
     struct Picture: Hashable, Codable {
         var url: String
         var description: String
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case likes
+        case price
+        case originalPrice = "original_price"
+        case category
+        case picture
     }
 }

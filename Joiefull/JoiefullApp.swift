@@ -13,7 +13,7 @@ struct JoiefullApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ClothesHome(viewModel: ClothesViewModel(context: persistenceController.container.viewContext))
+            Home(viewModel: ArticleViewModel(context: persistenceController.container.viewContext))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
