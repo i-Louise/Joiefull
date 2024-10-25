@@ -17,30 +17,39 @@ struct Home: View {
             HStack {
                 ArticleList(viewModel: viewModel, selectedArticle: $selectedArticle)
                 if horizontalSizeClass == .regular {
-                    if let article = selectedArticle {
-                        VStack {
-                            HStack {
-                                Button(action: {
-                                    selectedArticle = nil
-                                }) {
-                                    Image(systemName: "arrow.left")
-                                        .foregroundColor(.blue)
-                                    Text("Back")
-                                        .foregroundColor(.blue)
-                                }
-                                Spacer()
-                            }
-                            ArticleDetail(article: article, viewModel: viewModel)
-                        }
-                        .frame(maxWidth: UIScreen.main.bounds.width / 3)
-                        .transition(.slide)
-                        .padding()
-                    }
+                    ArticleDetailSideView(selectedArticle: $selectedArticle, viewModel: viewModel)
                 }
             }.onAppear {
                 viewModel.fetchArticles()
-        }
+            }
         }.accessibilityLabel("Home page with all the catalogue")
+    }
+}
+
+private struct ArticleDetailSideView: View {
+    @Binding var selectedArticle: Article?
+    var viewModel: ArticleViewModel
+    
+    var body: some View {
+        if let article = selectedArticle {
+            VStack {
+                HStack {
+                    Button(action: {
+                        selectedArticle = nil
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(.blue)
+                        Text("Back")
+                            .foregroundColor(.blue)
+                    }
+                    Spacer()
+                }
+                ArticleDetail(article: article, viewModel: viewModel)
+            }
+            .frame(maxWidth: UIScreen.main.bounds.width / 3)
+            .transition(.slide)
+            .padding()
+        }
     }
 }
 
