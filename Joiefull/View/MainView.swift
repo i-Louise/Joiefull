@@ -16,7 +16,8 @@ struct MainView: View {
         NavigationStack {
             HStack {
                 ArticleList(
-                    viewModel: ArticleViewModel(
+                    viewModel: ArticleListViewModel(
+                        articleRepository: ArticleRepository(),
                         context: PersistenceController.shared.container.viewContext
                     ),
                     selectedArticle: $selectedArticle

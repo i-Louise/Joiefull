@@ -17,7 +17,7 @@
 		730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */; };
 		730544E52CA1D09200F77233 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E42CA1D09200F77233 /* NetworkService.swift */; };
 		730544EA2CA1D68700F77233 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E92CA1D68700F77233 /* Article.swift */; };
-		730544EF2CA1EBDA00F77233 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ArticleViewModel.swift */; };
+		730544EF2CA1EBDA00F77233 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */; };
 		730544F42CA2078100F77233 /* ArticleListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* ArticleListRow.swift */; };
 		7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */; };
 		7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */; };
@@ -27,6 +27,7 @@
 		7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22A2CB9596800C06F89 /* DefaultData.swift */; };
 		7336F22D2CB9A2D600C06F89 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22C2CB9A2D600C06F89 /* RatingView.swift */; };
 		7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */; };
+		7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */; };
 		73A092852CA573C300385F22 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ArticleDetail.swift */; };
 		73A092872CA5753E00385F22 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092862CA5753E00385F22 /* MainView.swift */; };
 		73A092892CA61D0600385F22 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092882CA61D0600385F22 /* NetworkError.swift */; };
@@ -64,7 +65,7 @@
 		730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
 		730544E42CA1D09200F77233 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		730544E92CA1D68700F77233 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		730544EE2CA1EBDA00F77233 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		730544F32CA2078100F77233 /* ArticleListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRow.swift; sourceTree = "<group>"; };
 		7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		7336F2222CB9490000C06F89 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		7336F22A2CB9596800C06F89 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		7336F22C2CB9A2D600C06F89 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
+		7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
 		73A092842CA573C300385F22 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
 		73A092862CA5753E00385F22 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		73A092882CA61D0600385F22 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				7336F2242CB9536A00C06F89 /* UserRepository.swift */,
 				7336F2282CB9552200C06F89 /* ReviewRepository.swift */,
 				7336F22A2CB9596800C06F89 /* DefaultData.swift */,
+				7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +194,7 @@
 		730544ED2CA1EB8900F77233 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				730544EE2CA1EBDA00F77233 /* ArticleViewModel.swift */,
+				730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -341,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A092872CA5753E00385F22 /* MainView.swift in Sources */,
-				730544EF2CA1EBDA00F77233 /* ArticleViewModel.swift in Sources */,
+				730544EF2CA1EBDA00F77233 /* ArticleListViewModel.swift in Sources */,
 				73A092852CA573C300385F22 /* ArticleDetail.swift in Sources */,
 				7336F22D2CB9A2D600C06F89 /* RatingView.swift in Sources */,
 				7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */,
@@ -354,6 +357,7 @@
 				7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */,
 				7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */,
 				7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */,
+				7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Article.swift in Sources */,
 				7336F2252CB9536A00C06F89 /* UserRepository.swift in Sources */,
 				730544F42CA2078100F77233 /* ArticleListRow.swift in Sources */,

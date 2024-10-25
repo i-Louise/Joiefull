@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArticleList: View {
-    @ObservedObject var viewModel: ArticleViewModel
+    @ObservedObject var viewModel: ArticleListViewModel
     @Binding var selectedArticle: Article?
     
     var body: some View {
@@ -32,8 +32,9 @@ struct ArticleList: View {
     @State var selectedArticle: Article? = nil
     
     return ArticleList(
-        viewModel: ArticleViewModel(
+        viewModel: ArticleListViewModel(
             networkService: NetworkService(),
+            articleRepository: ArticleRepository(),
             context: PersistenceController.shared.container.viewContext
         ),
         selectedArticle: $selectedArticle
