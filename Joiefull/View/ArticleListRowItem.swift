@@ -1,5 +1,5 @@
 //
-//  CategoryItem.swift
+//  ArticleListRowItem.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 23/09/2024.
@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ArticleListRowItem: View {
     var article: Article
-    @ObservedObject var viewModel: ArticleViewModel
-    @State private var selectedArticle: Article?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -56,10 +54,9 @@ struct ArticleListRowItem: View {
                     HStack(spacing: 2) {
                         Image(systemName: "star.fill")
                             .foregroundColor(.orange)
-                        Text("\(viewModel.rating)")
-                            .foregroundColor(.gray)
-                            .font(.body)
-                        
+//                        Text("\(viewModel.rating)")
+//                            .foregroundColor(.gray)
+//                            .font(.body)
                     }
                 }
                 HStack {
@@ -74,14 +71,11 @@ struct ArticleListRowItem: View {
                 }
             }
         }
-
         .padding()
     }
 }
 
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let viewModel = ArticleViewModel(context: context)
     let testArticle = Article(
         id: 1,
         name: "Casual T-Shirt",
@@ -92,6 +86,5 @@ struct ArticleListRowItem: View {
         picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
             description: "A casual t-shirt")
     )
-    @State var selectedArticle: Article?
-    return ArticleListRowItem(article: testArticle, viewModel: viewModel)
+    return ArticleListRowItem(article: testArticle)
 }

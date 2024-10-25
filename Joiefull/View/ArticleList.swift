@@ -13,14 +13,29 @@ struct ArticleList: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.categories.keys.sorted(), id: \.self) { key in
+            ForEach(viewModel.categories.keys.sorted(), id: \.self) { category in
                 ArticleListRow(
-                    viewModel: viewModel,
-                    categoryName: key,
-                    article: viewModel.categories[key]!,
+                    categoryName: category,
+                    articles: viewModel.categories[category]!,
                     selectedArticle: $selectedArticle
                 )
             }
-        }.listStyle(.plain)
+        }
+        .listStyle(.plain)
+        .onAppear {
+            viewModel.fetchArticles()
+        }
     }
+}
+
+#Preview {
+    @State var selectedArticle: Article? = nil
+    
+    return ArticleList(
+        viewModel: ArticleViewModel(
+            networkService: NetworkService(),
+            context: PersistenceController.shared.container.viewContext
+        ),
+        selectedArticle: $selectedArticle
+    )
 }

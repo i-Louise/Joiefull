@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArticleDetail: View {
     var article: Article
-    @ObservedObject var viewModel: ArticleViewModel
+    
     @State private var comment: String = ""
     @State private var isShareSheetShowing = false
     
@@ -89,9 +89,9 @@ struct ArticleDetail: View {
                                 Image(systemName: "star.fill")
                                     .font(.title3)
                                     .foregroundColor(.orange)
-                                Text("\(viewModel.rating)")
-                                    .foregroundColor(.black)
-                                    .font(.title3)
+//                                Text("\(viewModel.rating)")
+//                                    .foregroundColor(.black)
+//                                    .font(.title3)
                             }
                         }
                         HStack {
@@ -107,24 +107,24 @@ struct ArticleDetail: View {
                             HStack {
                                 Image(systemName: "person.circle")
                                     .font(.title)
-                                RatingView(rating: $viewModel.userRating)
-                                    .padding(4)
+//                                RatingView(rating: $viewModel.userRating)
+//                                    .padding(4)
                                 Spacer()
                             }
                             Text("Partagez ici vos impressions sur cette pièce")
                                 .font(.subheadline)
                                 .foregroundStyle(Color.secondary)
                             
-                            TextEditor(text: $viewModel.comment)
-                                .foregroundStyle(.secondary)
-                                .frame(height: frame.height / 8)
-                                .padding(.horizontal)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
+//                            TextEditor(text: $viewModel.comment)
+//                                .foregroundStyle(.secondary)
+//                                .frame(height: frame.height / 8)
+//                                .padding(.horizontal)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 8)
+//                                        .stroke(Color.gray, lineWidth: 1)
+//                                )
                             Button(action: {
-                                viewModel.addReview()
+//                                viewModel.addReview()
                             }) {
                                 Text("Send")
                                     .padding()
@@ -142,11 +142,7 @@ struct ArticleDetail: View {
     }
 }
 
-
-
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let viewModel = ArticleViewModel(context: context)
     let testArticle = Article(
         id: 1,
         name: "Casual T-Shirt",
@@ -154,8 +150,10 @@ struct ArticleDetail: View {
         price: 29.99,
         originalPrice: 39.99,
         category: .tops,
-        picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/2.jpg",
-                                 description: "A casual t-shirt")
+        picture: Article.Picture(
+            url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/2.jpg",
+            description: "A casual t-shirt"
+        )
     )
-    return ArticleDetail(article: testArticle, viewModel: viewModel)
+    return ArticleDetail(article: testArticle)
 }

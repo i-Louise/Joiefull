@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel: ArticleViewModel
-    @State private var selectedArticle: Article?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    @State private var selectedArticle: Article?
     
     var body: some View {
         NavigationStack {
             HStack {
-                ArticleList(viewModel: viewModel, selectedArticle: $selectedArticle)
+                ArticleList(
+                    viewModel: ArticleViewModel(
+                        context: PersistenceController.shared.container.viewContext
+                    ),
+                    selectedArticle: $selectedArticle
+                )
                 if horizontalSizeClass == .regular {
-                    ArticleDetailSideView(selectedArticle: $selectedArticle, viewModel: viewModel)
+                    ArticleDetailSideView(selectedArticle: $selectedArticle)
                 }
-            }.onAppear {
-                viewModel.fetchArticles()
             }
         }.accessibilityLabel("Home page with all the catalogue")
     }
@@ -28,7 +31,6 @@ struct MainView: View {
 
 private struct ArticleDetailSideView: View {
     @Binding var selectedArticle: Article?
-    var viewModel: ArticleViewModel
     
     var body: some View {
         if let article = selectedArticle {
@@ -44,7 +46,7 @@ private struct ArticleDetailSideView: View {
                     }
                     Spacer()
                 }
-                ArticleDetail(article: article, viewModel: viewModel)
+                ArticleDetail(article: article)
             }
             .frame(maxWidth: UIScreen.main.bounds.width / 3)
             .transition(.slide)
@@ -54,7 +56,5 @@ private struct ArticleDetailSideView: View {
 }
 
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let viewModel = ArticleViewModel(context: context)
-    return MainView(viewModel: viewModel)
+    MainView()
 }

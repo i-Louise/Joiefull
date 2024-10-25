@@ -1,5 +1,5 @@
 //
-//  CategoryRow.swift
+//  ArticleListRow.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 23/09/2024.
@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ArticleListRow: View {
-    @ObservedObject var viewModel: ArticleViewModel
-    var categoryName: String
-    var article: [Article]
-    @Binding var selectedArticle: Article?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    var categoryName: String
+    var articles: [Article]
+    
+    @Binding var selectedArticle: Article?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,15 +23,15 @@ struct ArticleListRow: View {
                 .padding(.top, 5)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(article) { article in
+                    ForEach(articles) { article in
                         if horizontalSizeClass == .compact {
                             NavigationLink {
-                                ArticleDetail(article: article, viewModel: viewModel)
+                                ArticleDetail(article: article)
                             } label: {
-                                ArticleListRowItem(article: article, viewModel: viewModel)
+                                ArticleListRowItem(article: article)
                             }
                         } else {
-                            ArticleListRowItem(article: article, viewModel: viewModel)
+                            ArticleListRowItem(article: article)
                                 .padding(2)
                                 .background(selectedArticle?.id == article.id ? Color.blue.opacity(0.5) : Color.clear)
                                 .cornerRadius(16)
@@ -38,7 +39,6 @@ struct ArticleListRow: View {
                                     print("selected \(article.name)")
                                     selectedArticle = article
                                 }
-                                
                         }
                     }
                 }
@@ -48,17 +48,26 @@ struct ArticleListRow: View {
 }
 
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let viewModel = ArticleViewModel(context: context)
-    let url = "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg"
-    
-    let testArticle = [
-        Article(id: 0, name: "Sac rose", likes: 4, price: 80, originalPrice: 160, category: .accessoiries, picture: Article.Picture(url: url, description: "c'est une photo"))
-    ]
     @State var selectedArticle: Article? = nil
     
+    let testArticles = [
+        Article(
+            id: 0,
+            name: "Sac rose",
+            likes: 4,
+            price: 80,
+            originalPrice: 160,
+            category: .accessoiries,
+            picture: Article.Picture(
+                url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
+                description: "c'est une photo"
+            )
+        )
+    ]
+    
     return ArticleListRow(
-        viewModel: viewModel, categoryName: "Accessories",
-        article: testArticle, selectedArticle: $selectedArticle
+        categoryName: "Accessories",
+        articles: testArticles,
+        selectedArticle: $selectedArticle
     )
 }

@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct JoiefullApp: App {
-    let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: ArticleViewModel(context: persistenceController.container.viewContext))
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainView()
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
     }
 }
