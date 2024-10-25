@@ -1,5 +1,5 @@
 //
-//  CategoryList.swift
+//  MainView.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 26/09/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct MainView: View {
     @ObservedObject var viewModel: ArticleViewModel
     @State private var selectedArticle: Article?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -56,5 +56,5 @@ private struct ArticleDetailSideView: View {
 #Preview {
     let context = PersistenceController.preview.container.viewContext
     let viewModel = ArticleViewModel(context: context)
-    return Home(viewModel: viewModel)
+    return MainView(viewModel: viewModel)
 }
