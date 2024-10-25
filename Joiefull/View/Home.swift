@@ -44,19 +44,6 @@ struct Home: View {
     }
 }
 
-struct ArticleList: View {
-    @ObservedObject var viewModel: ArticleViewModel
-    @Binding var selectedArticle: Article?
-    
-    var body: some View {
-        List {
-            ForEach(viewModel.categories.keys.sorted(), id: \.self) { key in
-                ArticleListRow(viewModel: viewModel, categoryName: key, article: viewModel.categories[key]!, selectedArticle: $selectedArticle)
-            }
-        }.listStyle(.plain)
-    }
-}
-
 #Preview {
     let context = PersistenceController.preview.container.viewContext
     let viewModel = ArticleViewModel(context: context)
