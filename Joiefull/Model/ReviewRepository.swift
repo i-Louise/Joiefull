@@ -15,14 +15,16 @@ class ReviewRepository {
         self.viewContext = viewContext
     }
     
-    func getReviews() throws -> [Review] {
+    func getReviews(articleId: Int) throws -> [Review] {
         let request = Review.fetchRequest()
+        request.predicate = NSPredicate(format: "articleId == %ld", Int64(articleId))
         request.sortDescriptors = [NSSortDescriptor(SortDescriptor<Review>(\.date, order: .reverse))]
         return try viewContext.fetch(request)
     }
     
-    func addReview(comment: String, date: Date, rating: Int) throws {
+    func addReview(articleId: Int, comment: String, date: Date, rating: Int) throws {
         let newReview = Review(context: viewContext)
+        newReview.articleId = Int64(articleId)
         newReview.comment = comment
         newReview.date = date
         newReview.rating = Int16(rating)

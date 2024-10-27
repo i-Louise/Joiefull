@@ -48,8 +48,8 @@ private struct ArticleDetailSideView: View {
                     Spacer()
                 }
                 ArticleDetail(
-                    article: article,
                     viewModel: ArticleDetailViewModel(
+                        article: article,
                         reviewRepository: ReviewRepository(),
                         viewContext: PersistenceController.shared.container.viewContext
                     )

@@ -16,20 +16,24 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var showingAlert = false
     
+    let article: Article
+    
     private let reviewRepository: ReviewRepository
     private let viewContext: NSManagedObjectContext
     
     init(
+        article: Article,
         reviewRepository: ReviewRepository,
         viewContext: NSManagedObjectContext
     ) {
+        self.article = article
         self.reviewRepository = reviewRepository
         self.viewContext = viewContext
     }
     
     func fetchReviews() {
         do {
-            reviews = try reviewRepository.getReviews()
+            reviews = try reviewRepository.getReviews(articleId: article.id)
             averageRating = calculateAverageRating(reviews: reviews)
             print("Avis récupérés : \(reviews)")
         } catch {
@@ -46,6 +50,7 @@ class ArticleDetailViewModel: ObservableObject {
                 return
             }
             try reviewRepository.addReview(
+                articleId: article.id,
                 comment: userComment,
                 date: Date.now,
                 rating: Int(userRating)

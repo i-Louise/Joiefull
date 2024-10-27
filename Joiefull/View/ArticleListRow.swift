@@ -28,8 +28,8 @@ struct ArticleListRow: View {
                             NavigationLink {
                                 LazyNavigationView(
                                     ArticleDetail(
-                                        article: article,
                                         viewModel: ArticleDetailViewModel(
+                                            article: article,
                                             reviewRepository: ReviewRepository(),
                                             viewContext: PersistenceController.shared.container.viewContext
                                         )

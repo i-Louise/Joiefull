@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ArticleDetail: View {
-    var article: Article
-    
     @ObservedObject var viewModel: ArticleDetailViewModel
     
     @State private var isShareSheetShowing = false
@@ -20,7 +18,7 @@ struct ArticleDetail: View {
             ScrollView {
                 VStack {
                     ZStack {
-                        AsyncImage(url: URL(string: article.picture.url)) { phase in
+                        AsyncImage(url: URL(string: viewModel.article.picture.url)) { phase in
                             switch phase {
                             case .failure:
                                 Image(systemName: "photo")
@@ -36,7 +34,7 @@ struct ArticleDetail: View {
                         }
                         .frame(width: frame.width - 30, height: frame.height * 0.6)
                         .clipShape(.rect(cornerRadius: 25))
-                        .accessibilityHint(Text("\(article.picture.description)"))
+                        .accessibilityHint(Text("\(viewModel.article.picture.description)"))
                         VStack {
                             HStack {
                                 Spacer()
@@ -54,7 +52,7 @@ struct ArticleDetail: View {
                                         .padding()
                                 }
                                 .sheet(isPresented: $isShareSheetShowing, content: {
-                                    ActivityViewController(activityItems: [article.name, URL(string: article.picture.url)!])
+                                    ActivityViewController(activityItems: [viewModel.article.name, URL(string: viewModel.article.picture.url)!])
                                 })
                             }
                             Spacer()
@@ -64,10 +62,10 @@ struct ArticleDetail: View {
                                     
                                 }) {
                                     HStack(spacing: 4) {
-                                        Image(systemName: article.isFavorite == true ? "heart.fill" : "heart")
+                                        Image(systemName: viewModel.article.isFavorite == true ? "heart.fill" : "heart")
                                             .font(.body)
-                                            .foregroundColor(article.isFavorite == true ? .red : .black)
-                                        Text("\(article.likes)")
+                                            .foregroundColor(viewModel.article.isFavorite == true ? .red : .black)
+                                        Text("\(viewModel.article.likes)")
                                             .font(.body)
                                     }
                                     .padding(6)
@@ -81,7 +79,7 @@ struct ArticleDetail: View {
                     }
                     VStack(alignment: .leading) {
                         HStack {
-                            Text(article.name)
+                            Text(viewModel.article.name)
                                 .foregroundStyle(Color.primary)
                                 .font(.title3)
                                 .bold()
@@ -96,11 +94,11 @@ struct ArticleDetail: View {
                             }
                         }
                         HStack {
-                            Text("\(String(format: "%.2f", article.price))€")
+                            Text("\(String(format: "%.2f", viewModel.article.price))€")
                                 .font(.title3)
                                 .foregroundColor( .black)
                             Spacer()
-                            Text("\(String(format: "%.2f", article.originalPrice))€")
+                            Text("\(String(format: "%.2f", viewModel.article.originalPrice))€")
                                 .strikethrough()
                                 .foregroundColor(.gray)
                                 .font(.title3)
@@ -168,8 +166,8 @@ struct ArticleDetail: View {
         )
     )
     return ArticleDetail(
-        article: testArticle,
         viewModel: ArticleDetailViewModel(
+            article: testArticle,
             reviewRepository: ReviewRepository(),
             viewContext: PersistenceController.shared.container.viewContext
         )
