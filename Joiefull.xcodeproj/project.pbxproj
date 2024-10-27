@@ -24,7 +24,6 @@
 		7336F2252CB9536A00C06F89 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2242CB9536A00C06F89 /* UserRepository.swift */; };
 		7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2262CB9543100C06F89 /* PersistenceController.swift */; };
 		7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2282CB9552200C06F89 /* ReviewRepository.swift */; };
-		7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22A2CB9596800C06F89 /* DefaultData.swift */; };
 		7336F22D2CB9A2D600C06F89 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22C2CB9A2D600C06F89 /* RatingView.swift */; };
 		7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */; };
 		7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */; };
@@ -74,7 +73,6 @@
 		7336F2242CB9536A00C06F89 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		7336F2262CB9543100C06F89 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		7336F2282CB9552200C06F89 /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
-		7336F22A2CB9596800C06F89 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		7336F22C2CB9A2D600C06F89 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
 		7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				730544E92CA1D68700F77233 /* Article.swift */,
 				7336F2242CB9536A00C06F89 /* UserRepository.swift */,
 				7336F2282CB9552200C06F89 /* ReviewRepository.swift */,
-				7336F22A2CB9596800C06F89 /* DefaultData.swift */,
 				7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */,
 			);
 			path = Model;
@@ -362,7 +359,6 @@
 				730544E52CA1D09200F77233 /* NetworkService.swift in Sources */,
 				7380F5BA2CCC11FB006FC4F0 /* ArticleDetailViewModel.swift in Sources */,
 				7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */,
-				7336F22B2CB9596800C06F89 /* DefaultData.swift in Sources */,
 				7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */,
 				7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Article.swift in Sources */,

@@ -36,9 +36,5 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
-        
-        if inMemory == false {
-            try! DefaultData(viewContext: container.viewContext).apply()
-        }
     }
 }
