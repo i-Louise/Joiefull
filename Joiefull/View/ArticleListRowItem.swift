@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ArticleListRowItem: View {
-    var article: Article
-    
+    @ObservedObject var viewModel: ArticleListRowItemViewModel
+        
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .bottomTrailing) {
-                AsyncImage(url: URL(string: article.picture.url)) { phase in
+                AsyncImage(url: URL(string: viewModel.article.picture.url)) { phase in
                     switch phase {
                     case .failure:
                         Image(systemName: "photo")
@@ -28,12 +28,12 @@ struct ArticleListRowItem: View {
                 }
                 .frame(width: 200, height: 200)
                 .clipShape(.rect(cornerRadius: 16))
-                .accessibilityHint(Text("\(article.picture.description)"))
+                .accessibilityHint(Text("\(viewModel.article.picture.description)"))
                 
                 HStack(spacing: 4) {
                     Image(systemName: "heart")
                         .font(.body)
-                    Text("\(article.likes)")
+                    Text("\(viewModel.article.likes)")
                         .font(.body)
                 }
                 .padding(6)
@@ -44,7 +44,7 @@ struct ArticleListRowItem: View {
             
             VStack {
                 HStack {
-                    Text(article.name)
+                    Text(viewModel.article.name)
                         .font(.body)
                         .foregroundStyle(.black)
                         .frame(width: 150, alignment: .leading)
@@ -54,17 +54,17 @@ struct ArticleListRowItem: View {
                     HStack(spacing: 2) {
                         Image(systemName: "star.fill")
                             .foregroundColor(.orange)
-//                        Text("\(viewModel.rating)")
-//                            .foregroundColor(.gray)
-//                            .font(.body)
+                        Text(getHumanReadableRating())
+                            .foregroundColor(.gray)
+                            .font(.body)
                     }
                 }
                 HStack {
-                    Text("\(String(format: "%.2f", article.price))€")
+                    Text("\(String(format: "%.2f", viewModel.article.price))€")
                         .font(.body)
                         .foregroundColor(.black)
                     Spacer()
-                    Text("\(String(format: "%.2f", article.originalPrice))€")
+                    Text("\(String(format: "%.2f", viewModel.article.originalPrice))€")
                         .strikethrough()
                         .foregroundColor(.gray)
                         .font(.body)
@@ -72,6 +72,13 @@ struct ArticleListRowItem: View {
             }
         }
         .padding()
+    }
+    
+    private func getHumanReadableRating() -> String {
+        guard let rating = viewModel.getRating() else {
+            return "-"
+        }
+        return "\(rating)"
     }
 }
 
@@ -86,5 +93,12 @@ struct ArticleListRowItem: View {
         picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
             description: "A casual t-shirt")
     )
-    return ArticleListRowItem(article: testArticle)
+    return ArticleListRowItem(
+        viewModel: ArticleListRowItemViewModel(
+            article: testArticle,
+            reviewRepository: ReviewRepository(
+                viewContext: PersistenceController.shared.container.viewContext
+            )
+        )
+    )
 }

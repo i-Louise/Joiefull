@@ -36,10 +36,23 @@ struct ArticleListRow: View {
                                     )
                                 )
                             } label: {
-                                ArticleListRowItem(article: article)
+                                ArticleListRowItem(
+                                    viewModel: ArticleListRowItemViewModel(
+                                        article: article,
+                                        reviewRepository: ReviewRepository(
+                                            viewContext: PersistenceController.shared.container.viewContext
+                                        )
+                                    )
+                                )
                             }
                         } else {
-                            ArticleListRowItem(article: article)
+                            ArticleListRowItem(
+                                viewModel: ArticleListRowItemViewModel(
+                                    article: article,
+                                    reviewRepository: ReviewRepository(
+                                        viewContext: PersistenceController.shared.container.viewContext
+                                    )
+                                ))
                                 .padding(2)
                                 .background(selectedArticle?.id == article.id ? Color.blue.opacity(0.5) : Color.clear)
                                 .cornerRadius(16)

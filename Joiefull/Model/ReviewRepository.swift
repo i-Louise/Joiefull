@@ -31,4 +31,14 @@ class ReviewRepository {
         newReview.user = try UserRepository(viewContext: viewContext).getUser()
         try viewContext.save()
     }
+    
+    func getAverageRating(articleId: Int) throws -> Int? {
+        let reviews = try getReviews(articleId: articleId)
+        guard !reviews.isEmpty else {
+            print("Il n'y a pas d'avis pour le moment...")
+            return nil
+        }
+        let totalRating = reviews.reduce(0) { $0 + Int($1.rating) }
+        return Int(totalRating) / Int(reviews.count)
+    }
 }

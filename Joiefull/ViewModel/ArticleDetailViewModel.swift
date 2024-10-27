@@ -10,7 +10,6 @@ import CoreData
 
 class ArticleDetailViewModel: ObservableObject {
     @Published var averageRating: Int? = nil
-    @Published var reviews = [Review]()
     @Published var userRating: Int? = nil
     @Published var userComment: String = ""
     @Published var errorMessage: String? = nil
@@ -33,9 +32,7 @@ class ArticleDetailViewModel: ObservableObject {
     
     func fetchReviews() {
         do {
-            reviews = try reviewRepository.getReviews(articleId: article.id)
-            averageRating = calculateAverageRating(reviews: reviews)
-            print("Avis récupérés : \(reviews)")
+            averageRating = try reviewRepository.getAverageRating(articleId: article.id)
         } catch {
             errorMessage = "Une erreur s'est produite lors de la récupération des derniers avis. Veuillez réessayer ultérieurement."
             showingAlert = true
@@ -61,15 +58,5 @@ class ArticleDetailViewModel: ObservableObject {
             errorMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
             showingAlert = true
         }
-    }
-    
-    // Returns nil if passed in review list is empty
-    private func calculateAverageRating(reviews: [Review]) -> Int? {
-        guard !reviews.isEmpty else {
-            print("Il n'y a pas d'avis pour le moment...")
-            return nil
-        }
-        let totalRating = reviews.reduce(0) { $0 + Int($1.rating) }
-        return Int(totalRating) / Int(reviews.count)
     }
 }
