@@ -47,7 +47,13 @@ private struct ArticleDetailSideView: View {
                     }
                     Spacer()
                 }
-                ArticleDetail(article: article)
+                ArticleDetail(
+                    article: article,
+                    viewModel: ArticleDetailViewModel(
+                        reviewRepository: ReviewRepository(),
+                        viewContext: PersistenceController.shared.container.viewContext
+                    )
+                )
             }
             .frame(maxWidth: UIScreen.main.bounds.width / 3)
             .transition(.slide)

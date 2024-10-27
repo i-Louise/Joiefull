@@ -12,7 +12,7 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var averageRating: Int? = nil
     @Published var reviews = [Review]()
     @Published var userRating: Int? = nil
-    @Published var userComment: String? = nil
+    @Published var userComment: String = ""
     @Published var errorMessage: String? = nil
     @Published var showingAlert = false
     
@@ -38,25 +38,23 @@ class ArticleDetailViewModel: ObservableObject {
         }
     }
     
-    func addReview() -> Bool {
+    func addReview() {
         do {
             guard let userRating else {
                 errorMessage = "Veuillez renseigner une notation"
                 showingAlert = true
-                return false
+                return
             }
             try reviewRepository.addReview(
-                comment: userComment ?? "",
+                comment: userComment,
                 date: Date.now,
                 rating: Int(userRating)
             )
             self.userRating = nil
-            self.userComment = nil
-            return true
+            self.userComment = ""
         } catch {
             errorMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
             showingAlert = true
-            return false
         }
     }
     

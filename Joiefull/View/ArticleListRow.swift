@@ -26,7 +26,15 @@ struct ArticleListRow: View {
                     ForEach(articles) { article in
                         if horizontalSizeClass == .compact {
                             NavigationLink {
-                                ArticleDetail(article: article)
+                                LazyNavigationView(
+                                    ArticleDetail(
+                                        article: article,
+                                        viewModel: ArticleDetailViewModel(
+                                            reviewRepository: ReviewRepository(),
+                                            viewContext: PersistenceController.shared.container.viewContext
+                                        )
+                                    )
+                                )
                             } label: {
                                 ArticleListRowItem(article: article)
                             }

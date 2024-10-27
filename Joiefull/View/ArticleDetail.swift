@@ -10,7 +10,8 @@ import SwiftUI
 struct ArticleDetail: View {
     var article: Article
     
-    @State private var comment: String = ""
+    @ObservedObject var viewModel: ArticleDetailViewModel
+    
     @State private var isShareSheetShowing = false
     
     var body: some View {
@@ -89,9 +90,9 @@ struct ArticleDetail: View {
                                 Image(systemName: "star.fill")
                                     .font(.title3)
                                     .foregroundColor(.orange)
-//                                Text("\(viewModel.rating)")
-//                                    .foregroundColor(.black)
-//                                    .font(.title3)
+                                Text(getHumanReadableRating())
+                                    .foregroundColor(.black)
+                                    .font(.title3)
                             }
                         }
                         HStack {
@@ -107,24 +108,25 @@ struct ArticleDetail: View {
                             HStack {
                                 Image(systemName: "person.circle")
                                     .font(.title)
-//                                RatingView(rating: $viewModel.userRating)
-//                                    .padding(4)
+                                RatingView(rating: $viewModel.userRating)
+                                    .padding(4)
                                 Spacer()
                             }
                             Text("Partagez ici vos impressions sur cette pièce")
                                 .font(.subheadline)
                                 .foregroundStyle(Color.secondary)
                             
-//                            TextEditor(text: $viewModel.comment)
-//                                .foregroundStyle(.secondary)
-//                                .frame(height: frame.height / 8)
-//                                .padding(.horizontal)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 8)
-//                                        .stroke(Color.gray, lineWidth: 1)
-//                                )
+                            TextEditor(text: $viewModel.userComment)
+                                .foregroundStyle(.secondary)
+                                .frame(height: frame.height / 8)
+                                .padding(.horizontal)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
                             Button(action: {
-//                                viewModel.addReview()
+                                viewModel.addReview()
+                                viewModel.fetchReviews()
                             }) {
                                 Text("Send")
                                     .padding()
@@ -133,12 +135,22 @@ struct ArticleDetail: View {
                                     .foregroundColor(.white)
                                     .cornerRadius(30)
                             }
-                        
                     }
+                }
+                .onAppear {
+                    viewModel.fetchReviews()
                 }
                 .padding(15)
             }.accessibilityLabel("Detail page with more details about the item")
         }
+    }
+    
+    private func getHumanReadableRating() -> String {
+        guard let rating = viewModel.averageRating else {
+            return "No rating"
+        }
+        
+        return "\(rating)"
     }
 }
 
@@ -155,5 +167,11 @@ struct ArticleDetail: View {
             description: "A casual t-shirt"
         )
     )
-    return ArticleDetail(article: testArticle)
+    return ArticleDetail(
+        article: testArticle,
+        viewModel: ArticleDetailViewModel(
+            reviewRepository: ReviewRepository(),
+            viewContext: PersistenceController.shared.container.viewContext
+        )
+    )
 }
