@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class ArticleDetailViewModel: ObservableObject {
-    @Published var averageRating: Int? = nil
+    @Published var averageRating: Float? = nil
     @Published var userRating: Int? = nil
     @Published var userComment: String = ""
     @Published var errorMessage: String? = nil

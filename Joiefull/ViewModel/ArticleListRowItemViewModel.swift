@@ -9,6 +9,7 @@ import Foundation
 
 class ArticleListRowItemViewModel: ObservableObject {
     let article: Article
+    
     private let reviewRepository: ReviewRepository
     
     init(article: Article, reviewRepository: ReviewRepository) {
@@ -16,7 +17,7 @@ class ArticleListRowItemViewModel: ObservableObject {
         self.reviewRepository = reviewRepository
     }
     
-    func getRating() -> Int? {
+    func getRating() -> Float? {
         do {
             return try reviewRepository.getAverageRating(articleId: article.id)
         } catch {

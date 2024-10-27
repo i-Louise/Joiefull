@@ -78,7 +78,7 @@ struct ArticleListRowItem: View {
         guard let rating = viewModel.getRating() else {
             return "-"
         }
-        return "\(rating)"
+        return String(format: "%.1f", rating)
     }
 }
 

@@ -32,13 +32,13 @@ class ReviewRepository {
         try viewContext.save()
     }
     
-    func getAverageRating(articleId: Int) throws -> Int? {
+    func getAverageRating(articleId: Int) throws -> Float? {
         let reviews = try getReviews(articleId: articleId)
         guard !reviews.isEmpty else {
             print("Il n'y a pas d'avis pour le moment...")
             return nil
         }
         let totalRating = reviews.reduce(0) { $0 + Int($1.rating) }
-        return Int(totalRating) / Int(reviews.count)
+        return Float(totalRating) / Float(reviews.count)
     }
 }

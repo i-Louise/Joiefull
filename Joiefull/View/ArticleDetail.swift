@@ -148,7 +148,7 @@ struct ArticleDetail: View {
             return "No rating"
         }
         
-        return "\(rating)"
+        return String(format: "%.1f", rating)
     }
 }
 
