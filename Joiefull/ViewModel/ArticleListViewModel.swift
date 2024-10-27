@@ -10,14 +10,9 @@ import CoreData
 
 class ArticleListViewModel: ObservableObject {
     @Published var articles: [Article] = []
-    @Published var errorMessage: String? = nil
-    @Published var comment: String = ""
-    @Published var rating: Int = 0
-    @Published var userRating: Int = 0
     @Published var averageRating: Int = 0
-    @Published var date: Date = Date()
+    @Published var errorMessage: String? = nil
     @Published var showingAlert = false
-    @Published var reviews = [Review]()
     
     private let networkService: NetworkServicing
     private let articleRepository: ArticleRepository
@@ -31,7 +26,6 @@ class ArticleListViewModel: ObservableObject {
         self.networkService = networkService
         self.articleRepository = articleRepository
         self.viewContext = context
-        fetchReviews()
     }
     
     var categories: [String: [Article]] {
@@ -61,40 +55,6 @@ class ArticleListViewModel: ObservableObject {
                     print("Erreur lors de la récupération : \(error.localizedDescription)")
                 }
             }
-        }
-    }
-    
-    func fetchReviews() {
-        do {
-            let data = ReviewRepository(viewContext: viewContext)
-            reviews = try data.getReviews()
-            averageRating = calculateAverageRating()
-            print("Avis récupérés : \(reviews)")
-        } catch {
-            errorMessage = "Une erreur s'est produite lors de la récupération des derniers avis. Veuillez réessayer ultérieurement."
-            showingAlert = true
-        }
-    }
-    
-    func calculateAverageRating() -> Int {
-        guard !self.reviews.isEmpty else {
-            print("Tentative de récupération des avis...\(reviews)")
-            return 0
-        }
-        let totalRating = reviews.reduce(0) { $0 + Int($1.rating) }
-        averageRating = Int(totalRating) / Int(reviews.count)
-        
-        return averageRating
-    }
-    
-    func addReview() -> Bool {
-        do {
-            try ReviewRepository(viewContext: viewContext).addReview(comment: comment, date: date, rating: Int(userRating))
-            return true
-        } catch {
-            errorMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
-            showingAlert = true
-            return false
         }
     }
 }
