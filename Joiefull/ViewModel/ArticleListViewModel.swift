@@ -42,12 +42,6 @@ class ArticleListViewModel: ObservableObject {
                 DispatchQueue.main.async { [self] in
                     self.articleRepository.articles = articlesData
                     self.articles = self.articleRepository.articles
-                    do {
-                        try viewContext.save()
-                        print("Avis sauvegardé avec succès.")
-                    } catch {
-                        print("Erreur lors de la sauvegarde : \(error)")
-                    }
                 }
             } catch {
                 DispatchQueue.main.async {
