@@ -8,6 +8,8 @@
 import Foundation
 
 class ArticleListRowItemViewModel: ObservableObject {
+    @Published var averageRating: Float? = nil
+    
     let article: Article
     
     private let reviewRepository: ReviewRepository
@@ -15,9 +17,21 @@ class ArticleListRowItemViewModel: ObservableObject {
     init(article: Article, reviewRepository: ReviewRepository) {
         self.article = article
         self.reviewRepository = reviewRepository
+        self.averageRating = getRating()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(contextObjectsDidChange(_:)),
+            name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+            object: nil
+        )
     }
     
-    func getRating() -> Float? {
+    @objc func contextObjectsDidChange(_ notification: Notification) {
+        averageRating = getRating()
+    }
+    
+    private func getRating() -> Float? {
         do {
             return try reviewRepository.getAverageRating(articleId: article.id)
         } catch {

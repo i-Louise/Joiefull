@@ -75,7 +75,7 @@ struct ArticleListRowItem: View {
     }
     
     private func getHumanReadableRating() -> String {
-        guard let rating = viewModel.getRating() else {
+        guard let rating = viewModel.averageRating else {
             return "-"
         }
         return String(format: "%.1f", rating)
