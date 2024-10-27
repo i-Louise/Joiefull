@@ -17,7 +17,7 @@ class ArticleListRowItemViewModel: ObservableObject {
     init(article: Article, reviewRepository: ReviewRepository) {
         self.article = article
         self.reviewRepository = reviewRepository
-        self.averageRating = getRating()
+        updateAverageRating()
         
         NotificationCenter.default.addObserver(
             self,
@@ -28,15 +28,15 @@ class ArticleListRowItemViewModel: ObservableObject {
     }
     
     @objc func contextObjectsDidChange(_ notification: Notification) {
-        averageRating = getRating()
+        updateAverageRating()
     }
     
-    private func getRating() -> Float? {
+    private func updateAverageRating() {
         do {
-            return try reviewRepository.getAverageRating(articleId: article.id)
+            averageRating = try reviewRepository.getAverageRating(articleId: article.id)
         } catch {
             print("Impossible de calculer la moyenne")
-            return nil
+            return
         }
     }
 }

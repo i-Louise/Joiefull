@@ -28,9 +28,10 @@ class ArticleDetailViewModel: ObservableObject {
         self.article = article
         self.reviewRepository = reviewRepository
         self.viewContext = viewContext
+        updateAverageRating()
     }
     
-    func fetchReviews() {
+    func updateAverageRating() {
         do {
             averageRating = try reviewRepository.getAverageRating(articleId: article.id)
         } catch {

@@ -124,7 +124,7 @@ struct ArticleDetail: View {
                                 )
                             Button(action: {
                                 viewModel.addReview()
-                                viewModel.fetchReviews()
+                                viewModel.updateAverageRating()
                             }) {
                                 Text("Send")
                                     .padding()
@@ -134,9 +134,6 @@ struct ArticleDetail: View {
                                     .cornerRadius(30)
                             }
                     }
-                }
-                .onAppear {
-                    viewModel.fetchReviews()
                 }
                 .padding(15)
             }.accessibilityLabel("Detail page with more details about the item")
