@@ -8,8 +8,9 @@
 import Foundation
 import CoreData
 
-struct ReviewRepository {
-    let viewContext: NSManagedObjectContext
+class ReviewRepository {
+    private let viewContext: NSManagedObjectContext
+    
     init(viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         self.viewContext = viewContext
     }
