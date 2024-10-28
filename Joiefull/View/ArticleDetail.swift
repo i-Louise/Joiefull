@@ -59,12 +59,12 @@ struct ArticleDetail: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    
+                                    viewModel.onFavoriteAction()
                                 }) {
                                     HStack(spacing: 4) {
-                                        Image(systemName: viewModel.article.isFavorite == true ? "heart.fill" : "heart")
+                                        Image(systemName: viewModel.article.isFavorite ? "heart.fill" : "heart")
                                             .font(.body)
-                                            .foregroundColor(viewModel.article.isFavorite == true ? .red : .black)
+                                            .foregroundColor(viewModel.article.isFavorite ? .red : .black)
                                         Text("\(viewModel.article.likes)")
                                             .font(.body)
                                     }

@@ -15,7 +15,7 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var showingAlert = false
     
-    let article: Article
+    @Published var article: Article
     
     private let reviewRepository: ReviewRepository
     private let viewContext: NSManagedObjectContext
@@ -58,6 +58,18 @@ class ArticleDetailViewModel: ObservableObject {
         } catch {
             errorMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
             showingAlert = true
+        }
+    }
+    
+    func onFavoriteAction() {
+        if article.isFavorite == true {
+            article.likes -= 1
+            article.isFavorite.toggle()
+            print("removed from favorite")
+        } else if article.isFavorite == false {
+            article.likes += 1
+            article.isFavorite.toggle()
+            print("added to favorite")
         }
     }
 }
