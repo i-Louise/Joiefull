@@ -73,7 +73,8 @@ private struct ArticleDetailSideView: View {
             articleRepository: ArticleRepository(),
             reviewRepository: ReviewRepository(
                 viewContext: PersistenceController().container.viewContext
-            )
+            ),
+            likeRepository: LikeRepository()
         )
     )
 }

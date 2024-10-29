@@ -32,7 +32,10 @@
 		7380F5BE2CCED420006FC4F0 /* ArticleListRowItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5BD2CCED420006FC4F0 /* ArticleListRowItemViewModel.swift */; };
 		7380F5C42CD0D976006FC4F0 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 7380F5C32CD0D976006FC4F0 /* Collections */; };
 		7380F5C62CD0D976006FC4F0 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 7380F5C52CD0D976006FC4F0 /* OrderedCollections */; };
+		7380F5C82CD12188006FC4F0 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5C72CD12188006FC4F0 /* Like.swift */; };
+		7380F5CA2CD13F20006FC4F0 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5C92CD13F20006FC4F0 /* LikeRepository.swift */; };
 		7380F5CC2CD14403006FC4F0 /* JoiefullAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5CB2CD14403006FC4F0 /* JoiefullAppViewModel.swift */; };
+		7380F5CE2CD15310006FC4F0 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5CD2CD15310006FC4F0 /* LikesView.swift */; };
 		73A092852CA573C300385F22 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ArticleDetail.swift */; };
 		73A092872CA5753E00385F22 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092862CA5753E00385F22 /* MainView.swift */; };
 		73A092892CA61D0600385F22 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092882CA61D0600385F22 /* NetworkError.swift */; };
@@ -83,7 +86,10 @@
 		7380F5B92CCC11FB006FC4F0 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		7380F5BB2CCEC876006FC4F0 /* LazyNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigationLink.swift; sourceTree = "<group>"; };
 		7380F5BD2CCED420006FC4F0 /* ArticleListRowItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRowItemViewModel.swift; sourceTree = "<group>"; };
+		7380F5C72CD12188006FC4F0 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		7380F5C92CD13F20006FC4F0 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
 		7380F5CB2CD14403006FC4F0 /* JoiefullAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullAppViewModel.swift; sourceTree = "<group>"; };
+		7380F5CD2CD15310006FC4F0 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
 		73A092842CA573C300385F22 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
 		73A092862CA5753E00385F22 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		73A092882CA61D0600385F22 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -196,6 +202,8 @@
 				7336F2242CB9536A00C06F89 /* UserRepository.swift */,
 				7336F2282CB9552200C06F89 /* ReviewRepository.swift */,
 				7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */,
+				7380F5C72CD12188006FC4F0 /* Like.swift */,
+				7380F5C92CD13F20006FC4F0 /* LikeRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 				7336F22C2CB9A2D600C06F89 /* RatingView.swift */,
 				7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */,
 				7380F5BB2CCEC876006FC4F0 /* LazyNavigationLink.swift */,
+				7380F5CD2CD15310006FC4F0 /* LikesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,13 +379,16 @@
 				7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */,
 				730544B42CA1959000F77233 /* ContentView.swift in Sources */,
 				730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */,
+				7380F5CE2CD15310006FC4F0 /* LikesView.swift in Sources */,
 				73A092892CA61D0600385F22 /* NetworkError.swift in Sources */,
 				73C815FE2CA20CC300875B2F /* ArticleListRowItem.swift in Sources */,
 				7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */,
 				730544E52CA1D09200F77233 /* NetworkService.swift in Sources */,
 				7380F5BA2CCC11FB006FC4F0 /* ArticleDetailViewModel.swift in Sources */,
 				7380F5CC2CD14403006FC4F0 /* JoiefullAppViewModel.swift in Sources */,
+				7380F5CA2CD13F20006FC4F0 /* LikeRepository.swift in Sources */,
 				7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */,
+				7380F5C82CD12188006FC4F0 /* Like.swift in Sources */,
 				7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */,
 				7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Article.swift in Sources */,

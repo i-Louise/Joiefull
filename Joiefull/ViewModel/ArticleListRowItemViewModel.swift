@@ -11,11 +11,13 @@ class ArticleListRowItemViewModel: ObservableObject {
     @Published var averageRating: Float? = nil
     
     let article: Article
+    let like: Like
     
     private let reviewRepository: ReviewRepository
     
-    init(article: Article, reviewRepository: ReviewRepository) {
+    init(article: Article, like: Like, reviewRepository: ReviewRepository) {
         self.article = article
+        self.like = like
         self.reviewRepository = reviewRepository
         updateAverageRating()
         

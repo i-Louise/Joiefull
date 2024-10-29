@@ -16,14 +16,17 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var showingAlert = false
     
     @Published var article: Article
+    var like: Like
     
     private let reviewRepository: ReviewRepository
     
     init(
         article: Article,
+        like: Like,
         reviewRepository: ReviewRepository
     ) {
         self.article = article
+        self.like = like
         self.reviewRepository = reviewRepository
         updateAverageRating()
     }

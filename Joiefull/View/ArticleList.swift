@@ -35,7 +35,8 @@ struct ArticleList: View {
             articleRepository: ArticleRepository(),
             reviewRepository: ReviewRepository(
                 viewContext: PersistenceController().container.viewContext
-            )
+            ),
+            likeRepository: LikeRepository()
         ),
         selectedArticle: $selectedArticle
     )

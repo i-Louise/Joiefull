@@ -18,15 +18,18 @@ class ArticleListViewModel: ObservableObject {
     private let networkService: NetworkServicing
     private let articleRepository: ArticleRepository
     private let reviewRepository: ReviewRepository
+    private let likeRepository: LikeRepository
     
     init(
         networkService: NetworkServicing = NetworkService(),
         articleRepository: ArticleRepository,
-        reviewRepository: ReviewRepository
+        reviewRepository: ReviewRepository,
+        likeRepository: LikeRepository
     ) {
         self.networkService = networkService
         self.articleRepository = articleRepository
         self.reviewRepository = reviewRepository
+        self.likeRepository = likeRepository
         fetchArticles()
     }
     
@@ -44,6 +47,7 @@ class ArticleListViewModel: ObservableObject {
                 DispatchQueue.main.async { [self] in
                     self.articleRepository.articles = articlesData
                     self.articles = self.articleRepository.articles
+                    populateLikes(articles: self.articles)
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -54,9 +58,16 @@ class ArticleListViewModel: ObservableObject {
         }
     }
     
+    private func populateLikes(articles: [Article]) {
+        articles.forEach { article in
+            self.likeRepository.likes[article.id] = Like(likes: article.likes, isLiked: false)
+        }
+    }
+    
     func getArticleDetailViewModel(article: Article) -> ArticleDetailViewModel {
         return ArticleDetailViewModel(
             article: article,
+            like: likeRepository.likes[article.id] ?? Like(likes: -1, isLiked: false),
             reviewRepository: reviewRepository
         )
     }
@@ -64,6 +75,7 @@ class ArticleListViewModel: ObservableObject {
     func getArticleListRowItemViewModel(article: Article) -> ArticleListRowItemViewModel {
         return ArticleListRowItemViewModel(
             article: article,
+            like: likeRepository.likes[article.id] ?? Like(likes: -1, isLiked: false),
             reviewRepository: reviewRepository
         )
     }

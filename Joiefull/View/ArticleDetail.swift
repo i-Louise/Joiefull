@@ -61,22 +61,12 @@ struct ArticleDetail: View {
                             Spacer()
                             HStack {
                                 Spacer()
-                                Button(action: {
-                                    viewModel.onFavoriteAction()
-                                }) {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: viewModel.article.isFavorite ? "heart.fill" : "heart")
-                                            .font(.body)
-                                            .foregroundColor(viewModel.article.isFavorite ? .red : .black)
-                                        Text("\(viewModel.article.likes)")
-                                            .font(.body)
-                                    }
+                                LikesView(like: viewModel.like)
                                     .padding(6)
                                     .background(Color.white.opacity(0.8))
                                     .cornerRadius(16)
                                     .shadow(radius: 4)
                                     .padding()
-                                }
                             }
                         }
                     }
@@ -168,6 +158,7 @@ struct ArticleDetail: View {
     return ArticleDetail(
         viewModel: ArticleDetailViewModel(
             article: testArticle,
+            like: Like(likes: 42, isLiked: false),
             reviewRepository: ReviewRepository(
                 viewContext: PersistenceController().container.viewContext
             )

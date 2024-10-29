@@ -30,16 +30,11 @@ struct ArticleListRowItem: View {
                 .clipShape(.rect(cornerRadius: 16))
                 .accessibilityHint(Text("\(viewModel.article.picture.description)"))
                 
-                HStack(spacing: 4) {
-                    Image(systemName: "heart")
-                        .font(.body)
-                    Text("\(viewModel.article.likes)")
-                        .font(.body)
-                }
-                .padding(6)
-                .background(Color.white)
-                .cornerRadius(30)
-                .padding([.bottom, .trailing], 8)
+                LikesView(like: viewModel.like)
+                    .padding(6)
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .padding([.bottom, .trailing], 8)
             }
             
             VStack {
@@ -96,6 +91,7 @@ struct ArticleListRowItem: View {
     return ArticleListRowItem(
         viewModel: ArticleListRowItemViewModel(
             article: testArticle,
+            like: Like(likes: 42, isLiked: false),
             reviewRepository: ReviewRepository(
                 viewContext: PersistenceController().container.viewContext
             )

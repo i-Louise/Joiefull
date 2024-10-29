@@ -11,6 +11,7 @@ class JoiefullAppViewModel {
     private let persistenceController: PersistenceController
     private let articleRepository: ArticleRepository
     private let reviewRepository: ReviewRepository
+    private let likeRepository: LikeRepository
     
     init() {
         persistenceController = PersistenceController()
@@ -18,12 +19,14 @@ class JoiefullAppViewModel {
         reviewRepository = ReviewRepository(
             viewContext: persistenceController.container.viewContext
         )
+        likeRepository = LikeRepository()
     }
     
     var articleListViewModel: ArticleListViewModel {
         return ArticleListViewModel(
             articleRepository: articleRepository,
-            reviewRepository: reviewRepository
+            reviewRepository: reviewRepository,
+            likeRepository: likeRepository
         )
     }
 }
