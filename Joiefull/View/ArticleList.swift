@@ -15,6 +15,7 @@ struct ArticleList: View {
         List {
             ForEach(viewModel.categories.elements, id: \.key) { category, articles in
                 ArticleListRow(
+                    articleListViewModel: viewModel,
                     categoryName: category,
                     articles: articles,
                     selectedArticle: $selectedArticle
@@ -35,7 +36,9 @@ struct ArticleList: View {
         viewModel: ArticleListViewModel(
             networkService: NetworkService(),
             articleRepository: ArticleRepository(),
-            context: PersistenceController.shared.container.viewContext
+            reviewRepository: ReviewRepository(
+                viewContext: PersistenceController().container.viewContext
+            )
         ),
         selectedArticle: $selectedArticle
     )

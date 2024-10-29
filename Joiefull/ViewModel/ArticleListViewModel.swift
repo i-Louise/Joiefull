@@ -17,16 +17,16 @@ class ArticleListViewModel: ObservableObject {
     
     private let networkService: NetworkServicing
     private let articleRepository: ArticleRepository
-    private let viewContext: NSManagedObjectContext
+    private let reviewRepository: ReviewRepository
     
     init(
         networkService: NetworkServicing = NetworkService(),
         articleRepository: ArticleRepository,
-        context: NSManagedObjectContext
+        reviewRepository: ReviewRepository
     ) {
         self.networkService = networkService
         self.articleRepository = articleRepository
-        self.viewContext = context
+        self.reviewRepository = reviewRepository
     }
     
     var categories: OrderedDictionary<String, [Article]> {
@@ -51,5 +51,19 @@ class ArticleListViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func getArticleDetailViewModel(article: Article) -> ArticleDetailViewModel {
+        return ArticleDetailViewModel(
+            article: article,
+            reviewRepository: reviewRepository
+        )
+    }
+    
+    func getArticleListRowItemViewModel(article: Article) -> ArticleListRowItemViewModel {
+        return ArticleListRowItemViewModel(
+            article: article,
+            reviewRepository: reviewRepository
+        )
     }
 }

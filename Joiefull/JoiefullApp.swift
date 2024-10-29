@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct JoiefullApp: App {
+    private let appViewModel = JoiefullAppViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+            MainView(articleListViewModel: appViewModel.articleListViewModel)
         }
     }
 }

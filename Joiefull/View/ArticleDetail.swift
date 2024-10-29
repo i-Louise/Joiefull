@@ -168,8 +168,9 @@ struct ArticleDetail: View {
     return ArticleDetail(
         viewModel: ArticleDetailViewModel(
             article: testArticle,
-            reviewRepository: ReviewRepository(),
-            viewContext: PersistenceController.shared.container.viewContext
+            reviewRepository: ReviewRepository(
+                viewContext: PersistenceController().container.viewContext
+            )
         )
     )
 }

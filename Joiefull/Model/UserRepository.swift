@@ -10,9 +10,11 @@ import CoreData
 
 struct UserRepository: UserRepositoryProtocol {
     let viewContext: NSManagedObjectContext
-    init(viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
+    
+    init(viewContext: NSManagedObjectContext = PersistenceController().container.viewContext) {
         self.viewContext = viewContext
     }
+    
     func getUser() throws -> User {
         let request = User.fetchRequest()
         request.fetchLimit = 1

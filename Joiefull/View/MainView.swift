@@ -12,18 +12,24 @@ struct MainView: View {
     
     @State private var selectedArticle: Article?
     
+    private let articleListViewModel: ArticleListViewModel
+    
+    init(articleListViewModel: ArticleListViewModel) {
+        self.articleListViewModel = articleListViewModel
+    }
+    
     var body: some View {
         NavigationStack {
             HStack {
                 ArticleList(
-                    viewModel: ArticleListViewModel(
-                        articleRepository: ArticleRepository(),
-                        context: PersistenceController.shared.container.viewContext
-                    ),
+                    viewModel: articleListViewModel,
                     selectedArticle: $selectedArticle
                 )
                 if horizontalSizeClass == .regular {
-                    ArticleDetailSideView(selectedArticle: $selectedArticle)
+                    ArticleDetailSideView(
+                        articleListViewModel: articleListViewModel,
+                        selectedArticle: $selectedArticle
+                    )
                 }
             }
         }.accessibilityLabel("Home page with all the catalogue")
@@ -31,6 +37,7 @@ struct MainView: View {
 }
 
 private struct ArticleDetailSideView: View {
+    let articleListViewModel: ArticleListViewModel
     @Binding var selectedArticle: Article?
     
     var body: some View {
@@ -48,10 +55,8 @@ private struct ArticleDetailSideView: View {
                     Spacer()
                 }
                 ArticleDetail(
-                    viewModel: ArticleDetailViewModel(
-                        article: article,
-                        reviewRepository: ReviewRepository(),
-                        viewContext: PersistenceController.shared.container.viewContext
+                    viewModel: articleListViewModel.getArticleDetailViewModel(
+                        article: article
                     )
                 )
             }
@@ -63,5 +68,12 @@ private struct ArticleDetailSideView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(
+        articleListViewModel: ArticleListViewModel(
+            articleRepository: ArticleRepository(),
+            reviewRepository: ReviewRepository(
+                viewContext: PersistenceController().container.viewContext
+            )
+        )
+    )
 }

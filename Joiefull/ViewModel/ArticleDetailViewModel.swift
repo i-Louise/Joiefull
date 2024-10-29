@@ -18,16 +18,13 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var article: Article
     
     private let reviewRepository: ReviewRepository
-    private let viewContext: NSManagedObjectContext
     
     init(
         article: Article,
-        reviewRepository: ReviewRepository,
-        viewContext: NSManagedObjectContext
+        reviewRepository: ReviewRepository
     ) {
         self.article = article
         self.reviewRepository = reviewRepository
-        self.viewContext = viewContext
         updateAverageRating()
     }
     

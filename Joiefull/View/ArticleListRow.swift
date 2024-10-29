@@ -10,6 +10,8 @@ import SwiftUI
 struct ArticleListRow: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
+    var articleListViewModel: ArticleListViewModel
+    
     var categoryName: String
     var articles: [Article]
     
@@ -28,30 +30,22 @@ struct ArticleListRow: View {
                             NavigationLink {
                                 LazyNavigationLink(
                                     ArticleDetail(
-                                        viewModel: ArticleDetailViewModel(
-                                            article: article,
-                                            reviewRepository: ReviewRepository(),
-                                            viewContext: PersistenceController.shared.container.viewContext
+                                        viewModel: articleListViewModel.getArticleDetailViewModel(
+                                            article: article
                                         )
                                     )
                                 )
                             } label: {
                                 ArticleListRowItem(
-                                    viewModel: ArticleListRowItemViewModel(
-                                        article: article,
-                                        reviewRepository: ReviewRepository(
-                                            viewContext: PersistenceController.shared.container.viewContext
-                                        )
+                                    viewModel: articleListViewModel.getArticleListRowItemViewModel(
+                                        article: article
                                     )
                                 )
                             }
                         } else {
                             ArticleListRowItem(
-                                viewModel: ArticleListRowItemViewModel(
-                                    article: article,
-                                    reviewRepository: ReviewRepository(
-                                        viewContext: PersistenceController.shared.container.viewContext
-                                    )
+                                viewModel: articleListViewModel.getArticleListRowItemViewModel(
+                                    article: article
                                 ))
                                 .padding(2)
                                 .background(selectedArticle?.id == article.id ? Color.blue.opacity(0.5) : Color.clear)
@@ -87,6 +81,12 @@ struct ArticleListRow: View {
     ]
     
     return ArticleListRow(
+        articleListViewModel: ArticleListViewModel(
+            articleRepository: ArticleRepository(),
+            reviewRepository: ReviewRepository(
+                viewContext: PersistenceController().container.viewContext
+            )
+        ),
         categoryName: "Accessories",
         articles: testArticles,
         selectedArticle: $selectedArticle

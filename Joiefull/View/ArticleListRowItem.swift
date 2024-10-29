@@ -97,7 +97,7 @@ struct ArticleListRowItem: View {
         viewModel: ArticleListRowItemViewModel(
             article: testArticle,
             reviewRepository: ReviewRepository(
-                viewContext: PersistenceController.shared.container.viewContext
+                viewContext: PersistenceController().container.viewContext
             )
         )
     )
