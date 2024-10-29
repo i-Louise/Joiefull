@@ -13,10 +13,10 @@ struct ArticleList: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.categories.keys.sorted(), id: \.self) { category in
+            ForEach(viewModel.categories.elements, id: \.key) { category, articles in
                 ArticleListRow(
                     categoryName: category,
-                    articles: viewModel.categories[category]!,
+                    articles: articles,
                     selectedArticle: $selectedArticle
                 )
             }

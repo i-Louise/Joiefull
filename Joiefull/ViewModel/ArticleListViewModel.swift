@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import OrderedCollections
 
 class ArticleListViewModel: ObservableObject {
     @Published var articles: [Article] = []
@@ -28,8 +29,8 @@ class ArticleListViewModel: ObservableObject {
         self.viewContext = context
     }
     
-    var categories: [String: [Article]] {
-        Dictionary(
+    var categories: OrderedDictionary<String, [Article]> {
+        OrderedDictionary(
             grouping: articles,
             by: { $0.category.rawValue }
         )

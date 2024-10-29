@@ -36,25 +36,28 @@ struct ArticleDetail: View {
                         .clipShape(.rect(cornerRadius: 25))
                         .accessibilityHint(Text("\(viewModel.article.picture.description)"))
                         VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    isShareSheetShowing = true
-                                }) {
-                                    Image("ShareIcon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 25)
-                                        .padding(10)
-                                        .background(Color.white.opacity(0.8))
-                                        .clipShape(.rect(cornerRadius: 20))
-                                        .shadow(radius: 4)
-                                        .padding()
+                            if let url = URL(string: viewModel.article.picture.url) {
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        isShareSheetShowing = true
+                                    }) {
+                                        Image("ShareIcon")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25)
+                                            .padding(10)
+                                            .background(Color.white.opacity(0.8))
+                                            .clipShape(.rect(cornerRadius: 20))
+                                            .shadow(radius: 4)
+                                            .padding()
+                                    }
+                                    .sheet(isPresented: $isShareSheetShowing, content: {
+                                        ActivityViewController(activityItems: [viewModel.article.name, url])
+                                    })
                                 }
-                                .sheet(isPresented: $isShareSheetShowing, content: {
-                                    ActivityViewController(activityItems: [viewModel.article.name, URL(string: viewModel.article.picture.url)!])
-                                })
                             }
+                        
                             Spacer()
                             HStack {
                                 Spacer()
