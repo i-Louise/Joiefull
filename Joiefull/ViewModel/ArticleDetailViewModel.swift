@@ -15,7 +15,7 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var showingAlert = false
     
-    @Published var article: Article
+    var article: Article
     var like: Like
     
     private let reviewRepository: ReviewRepository
