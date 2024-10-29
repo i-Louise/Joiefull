@@ -1,5 +1,5 @@
 //
-//  Clothe.swift
+//  Article.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 23/09/2024.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Article: Hashable, Codable, Identifiable {
+struct Article: Codable, Identifiable {
     let id: Int
     let name: String
-    var likes: Int
+    let likes: Int
     let price: Double
     let originalPrice: Double
-    var isFavorite: Bool = false
+    let category: Category
+    let picture: Picture
     
-    var category: Category
     enum Category: String, CaseIterable, Codable {
         case accessoiries = "ACCESSORIES"
         case bottoms = "BOTTOMS"
@@ -23,10 +23,9 @@ struct Article: Hashable, Codable, Identifiable {
         case tops = "TOPS"
     }
     
-    var picture: Picture
-    struct Picture: Hashable, Codable {
-        var url: String
-        var description: String
+    struct Picture: Codable {
+        let url: String
+        let description: String
     }
     
     enum CodingKeys: String, CodingKey {

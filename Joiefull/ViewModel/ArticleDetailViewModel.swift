@@ -57,16 +57,4 @@ class ArticleDetailViewModel: ObservableObject {
             showingAlert = true
         }
     }
-    
-    func onFavoriteAction() {
-        if article.isFavorite == true {
-            article.likes -= 1
-            article.isFavorite.toggle()
-            print("removed from favorite")
-        } else if article.isFavorite == false {
-            article.likes += 1
-            article.isFavorite.toggle()
-            print("added to favorite")
-        }
-    }
 }

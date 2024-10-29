@@ -159,7 +159,7 @@ struct ArticleDetail: View {
         likes: 10,
         price: 29.99,
         originalPrice: 39.99,
-        category: .tops,
+        category: Article.Category.tops,
         picture: Article.Picture(
             url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/2.jpg",
             description: "A casual t-shirt"

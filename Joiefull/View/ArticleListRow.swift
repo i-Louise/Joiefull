@@ -72,7 +72,7 @@ struct ArticleListRow: View {
             likes: 4,
             price: 80,
             originalPrice: 160,
-            category: .accessoiries,
+            category: Article.Category.accessoiries,
             picture: Article.Picture(
                 url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
                 description: "c'est une photo"
