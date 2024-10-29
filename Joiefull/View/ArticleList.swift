@@ -23,9 +23,6 @@ struct ArticleList: View {
             }
         }
         .listStyle(.plain)
-        .onAppear {
-            viewModel.fetchArticles()
-        }
     }
 }
 

@@ -27,6 +27,7 @@ class ArticleListViewModel: ObservableObject {
         self.networkService = networkService
         self.articleRepository = articleRepository
         self.reviewRepository = reviewRepository
+        fetchArticles()
     }
     
     var categories: OrderedDictionary<String, [Article]> {
@@ -36,7 +37,7 @@ class ArticleListViewModel: ObservableObject {
         )
     }
     
-    func fetchArticles() {
+    private func fetchArticles() {
         Task {
             do {
                 let articlesData = try await networkService.getAllArticles()
