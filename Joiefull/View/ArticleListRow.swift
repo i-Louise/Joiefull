@@ -26,7 +26,7 @@ struct ArticleListRow: View {
                     ForEach(articles) { article in
                         if horizontalSizeClass == .compact {
                             NavigationLink {
-                                LazyNavigationView(
+                                LazyNavigationLink(
                                     ArticleDetail(
                                         viewModel: ArticleDetailViewModel(
                                             article: article,

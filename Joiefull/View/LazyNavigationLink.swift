@@ -1,5 +1,5 @@
 //
-//  LazyNavigationView.swift
+//  LazyNavigationLink.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 27/10/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LazyNavigationView<Content: View>: View {
+struct LazyNavigationLink<Content: View>: View {
     let build: () -> Content
     init(_ build: @autoclosure @escaping () -> Content) {
         self.build = build
