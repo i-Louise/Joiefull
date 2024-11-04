@@ -28,7 +28,6 @@ class ReviewRepository {
         newReview.comment = comment
         newReview.date = date
         newReview.rating = Int16(rating)
-        newReview.user = try UserRepository(viewContext: viewContext).getUser()
         try viewContext.save()
     }
     
