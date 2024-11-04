@@ -30,7 +30,6 @@ class ArticleListViewModel: ObservableObject {
         self.articleRepository = articleRepository
         self.reviewRepository = reviewRepository
         self.likeRepository = likeRepository
-        fetchArticles()
     }
     
     var categories: OrderedDictionary<String, [Article]> {
@@ -40,19 +39,21 @@ class ArticleListViewModel: ObservableObject {
         )
     }
     
-    private func fetchArticles() {
+    func fetchArticles(completion: @escaping () -> Void) {
         Task {
             do {
                 let articlesData = try await networkService.getAllArticles()
                 DispatchQueue.main.async { [self] in
-                    self.articleRepository.articles = articlesData
-                    self.articles = self.articleRepository.articles
-                    populateLikes(articles: self.articles)
+                    articleRepository.articles = articlesData
+                    articles = articleRepository.articles
+                    populateLikes(articles: articles)
+                    completion()
                 }
             } catch {
-                DispatchQueue.main.async {
-                    self.errorMessage = error.localizedDescription
+                DispatchQueue.main.async { [self] in
+                    errorMessage = error.localizedDescription
                     print("Erreur lors de la récupération : \(error.localizedDescription)")
+                    completion()
                 }
             }
         }
@@ -60,7 +61,9 @@ class ArticleListViewModel: ObservableObject {
     
     private func populateLikes(articles: [Article]) {
         articles.forEach { article in
-            self.likeRepository.likes[article.id] = Like(likes: article.likes, isLiked: false)
+            if likeRepository.likes[article.id] == nil {
+                likeRepository.likes[article.id] = Like(likes: article.likes, isLiked: false)
+            }
         }
     }
     
