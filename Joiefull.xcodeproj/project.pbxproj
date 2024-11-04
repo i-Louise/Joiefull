@@ -19,6 +19,8 @@
 		730544EA2CA1D68700F77233 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E92CA1D68700F77233 /* Article.swift */; };
 		730544EF2CA1EBDA00F77233 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */; };
 		730544F42CA2078100F77233 /* ArticleListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* ArticleListRow.swift */; };
+		731F03052CD3DCF500D72C42 /* ArticleListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */; };
+		731F03082CD5543B00D72C42 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */; };
 		7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */; };
 		7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */; };
 		7336F2252CB9536A00C06F89 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2242CB9536A00C06F89 /* UserRepository.swift */; };
@@ -75,6 +77,8 @@
 		730544E92CA1D68700F77233 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		730544F32CA2078100F77233 /* ArticleListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRow.swift; sourceTree = "<group>"; };
+		731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelTests.swift; sourceTree = "<group>"; };
+		731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		7336F2222CB9490000C06F89 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		7336F2242CB9536A00C06F89 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -171,7 +175,9 @@
 		730544C12CA1959200F77233 /* JoiefullTests */ = {
 			isa = PBXGroup;
 			children = (
+				731F03062CD5542E00D72C42 /* Mock */,
 				730544C22CA1959200F77233 /* JoiefullTests.swift */,
+				731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */,
 			);
 			path = JoiefullTests;
 			sourceTree = "<group>";
@@ -233,6 +239,14 @@
 				7380F5CD2CD15310006FC4F0 /* LikesView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		731F03062CD5542E00D72C42 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +420,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				730544C32CA1959200F77233 /* JoiefullTests.swift in Sources */,
+				731F03082CD5543B00D72C42 /* NetworkServiceMock.swift in Sources */,
+				731F03052CD3DCF500D72C42 /* ArticleListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
