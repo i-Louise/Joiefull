@@ -13,9 +13,9 @@ class ArticleListRowItemViewModel: ObservableObject {
     let article: Article
     let like: Like
     
-    private let reviewRepository: ReviewRepository
+    private let reviewRepository: ReviewRepositoryProtocol
     
-    init(article: Article, like: Like, reviewRepository: ReviewRepository) {
+    init(article: Article, like: Like, reviewRepository: ReviewRepositoryProtocol) {
         self.article = article
         self.like = like
         self.reviewRepository = reviewRepository

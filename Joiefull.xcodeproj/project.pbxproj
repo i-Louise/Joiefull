@@ -23,6 +23,7 @@
 		731F03082CD5543B00D72C42 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */; };
 		731F030F2CD989F000D72C42 /* LikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F030E2CD989F000D72C42 /* LikeTests.swift */; };
 		731F03112CD993AE00D72C42 /* ReviewRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03102CD993AE00D72C42 /* ReviewRepositoryMock.swift */; };
+		731F03132CD99BAE00D72C42 /* ArticleListRowItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03122CD99BAE00D72C42 /* ArticleListRowItemViewModelTests.swift */; };
 		7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */; };
 		7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */; };
 		7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2262CB9543100C06F89 /* PersistenceController.swift */; };
@@ -82,6 +83,7 @@
 		731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		731F030E2CD989F000D72C42 /* LikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTests.swift; sourceTree = "<group>"; };
 		731F03102CD993AE00D72C42 /* ReviewRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepositoryMock.swift; sourceTree = "<group>"; };
+		731F03122CD99BAE00D72C42 /* ArticleListRowItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRowItemViewModelTests.swift; sourceTree = "<group>"; };
 		7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		7336F2222CB9490000C06F89 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		7336F2262CB9543100C06F89 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				731F03062CD5542E00D72C42 /* Mock */,
 				730544C22CA1959200F77233 /* JoiefullTests.swift */,
 				731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */,
+				731F03122CD99BAE00D72C42 /* ArticleListRowItemViewModelTests.swift */,
 			);
 			path = JoiefullTests;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				731F03082CD5543B00D72C42 /* NetworkServiceMock.swift in Sources */,
 				731F030F2CD989F000D72C42 /* LikeTests.swift in Sources */,
 				731F03052CD3DCF500D72C42 /* ArticleListViewModelTests.swift in Sources */,
+				731F03132CD99BAE00D72C42 /* ArticleListRowItemViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
