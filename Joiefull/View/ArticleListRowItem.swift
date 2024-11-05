@@ -29,7 +29,9 @@ struct ArticleListRowItem: View {
                 .frame(width: 200, height: 200)
                 .clipShape(.rect(cornerRadius: 16))
                 .accessibilityHint(Text("\(viewModel.article.picture.description)"))
+                
                 LikesView(like: viewModel.like)
+                    .padding(6)
             }
             
             VStack {
