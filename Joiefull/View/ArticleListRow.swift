@@ -23,6 +23,7 @@ struct ArticleListRow: View {
                 .font(.headline)
                 .padding(.leading, 15)
                 .padding(.top, 5)
+                .accessibilityLabel("catégorie \(categoryName)")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(articles) { article in

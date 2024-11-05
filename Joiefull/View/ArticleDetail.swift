@@ -34,7 +34,10 @@ struct ArticleDetail: View {
                         }
                         .frame(width: frame.width - 30, height: frame.height * 0.6)
                         .clipShape(.rect(cornerRadius: 25))
+                        .accessibilityElement()
+                        .accessibilitySortPriority(3)
                         .accessibilityHint(Text("\(viewModel.article.picture.description)"))
+                        
                         VStack {
                             if let url = URL(string: viewModel.article.picture.url) {
                                 HStack {
@@ -51,6 +54,7 @@ struct ArticleDetail: View {
                                             .clipShape(.rect(cornerRadius: 20))
                                             .shadow(radius: 4)
                                             .padding()
+                                            .accessibilityLabel("Partager l'article")
                                     }
                                     .sheet(isPresented: $isShareSheetShowing, content: {
                                         ActivityViewController(activityItems: [viewModel.article.name, url])
@@ -72,6 +76,8 @@ struct ArticleDetail: View {
                                 .foregroundStyle(Color.primary)
                                 .font(.title3)
                                 .bold()
+                                .accessibilitySortPriority(4)
+
                             Spacer()
                             HStack(spacing: 2) {
                                 Image(systemName: "star.fill")
@@ -81,6 +87,9 @@ struct ArticleDetail: View {
                                     .foregroundColor(.primary)
                                     .font(.title3)
                             }
+                            .accessibilityElement(children: .ignore)
+                            .accessibilitySortPriority(1)
+                            .accessibilityLabel("L'article a une moyenne de \(getHumanReadableRating()) étoiles sur 5")
                         }
                         HStack {
                             Text("\(String(format: "%.2f", viewModel.article.price))€")
@@ -92,9 +101,14 @@ struct ArticleDetail: View {
                                 .foregroundStyle(Color.secondary)
                                 .font(.title3)
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilitySortPriority(2)
+                        .accessibilityLabel(Text("Le prix actuel est de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
+                        
                             HStack {
                                 Image(systemName: "person.circle")
                                     .font(.title)
+                                    .accessibilityHidden(true)
                                 RatingView(rating: $viewModel.userRating)
                                     .padding(4)
                                 Spacer()
@@ -111,6 +125,8 @@ struct ArticleDetail: View {
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.gray, lineWidth: 1)
                                 )
+                                .accessibilityElement()
+                                .accessibilityLabel("Rédigez le commentaire ici")
                             Button(action: {
                                 viewModel.addReview()
                                 viewModel.updateAverageRating()
@@ -125,7 +141,8 @@ struct ArticleDetail: View {
                     }
                 }
                 .padding(15)
-            }.accessibilityLabel("Detail page with more details about the item")
+                .accessibilityElement(children: .contain)
+            }
         }
     }
     

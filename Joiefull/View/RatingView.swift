@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    @Binding var rating: Int?
-    
+    @Binding var rating: Int
     private let maximumRating = 5
     private let starImage = Image(systemName: "star.fill")
     private let offColor = Color.gray
@@ -21,8 +20,23 @@ struct RatingView: View {
                 Button {
                     self.rating = currentStarIndex + 1
                 } label: {
-                    starImage.foregroundStyle(currentStarIndex < (rating ?? 0) ? onColor : offColor)
+                    starImage.foregroundStyle(currentStarIndex < (rating ) ? onColor : offColor)
                 }
+            }
+        }
+        .accessibilityElement()
+        .accessibilityLabel("Notation sur 5 étoiles")
+        .accessibilityValue(String(rating))
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard rating < maximumRating else { break }
+                rating += 1
+            case .decrement:
+                guard rating > 1 else { break }
+                rating -= 1
+            @unknown default:
+                break
             }
         }
     }

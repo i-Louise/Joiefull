@@ -28,10 +28,11 @@ struct ArticleListRowItem: View {
                 }
                 .frame(width: 200, height: 200)
                 .clipShape(.rect(cornerRadius: 16))
-                .accessibilityHint(Text("\(viewModel.article.picture.description)"))
+                .accessibilityValue(Text("\(viewModel.article.picture.description)"))
                 
                 LikesView(like: viewModel.like)
                     .padding(6)
+                    .accessibilityHidden(true)
             }
             
             VStack {
@@ -50,6 +51,8 @@ struct ArticleListRowItem: View {
                             .foregroundStyle(Color.primary)
                             .font(.body)
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("Notation moyenne de \(getHumanReadableRating()) étoiles sur 5")
                 }
                 HStack {
                     Text("\(String(format: "%.2f", viewModel.article.price))€")
@@ -61,9 +64,12 @@ struct ArticleListRowItem: View {
                         .foregroundStyle(Color.secondary)
                         .font(.body)
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Le prix actuel est de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
             }
         }
         .padding()
+        .accessibilityAddTraits(.allowsDirectInteraction)
     }
     
     private func getHumanReadableRating() -> String {

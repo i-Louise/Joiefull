@@ -20,6 +20,8 @@ struct LikesView: View {
                     .foregroundColor(like.isLiked ? .red : .black)
                 Text("\(like.totalLikes)")
                     .font(.body)
+                    .accessibilityLabel("Favoris")
+                    .accessibilityValue(Text("\(like.totalLikes) utilisateurs l'ont ajouté en favoris"))
             }
         }
         .padding(6)
@@ -27,5 +29,6 @@ struct LikesView: View {
         .cornerRadius(30)
         .shadow(radius: 10)
         .padding([.bottom, .trailing], 8)
+        .accessibilityHint(Text(like.isLiked ? "Cliquez pour enlever des favoris" : "Cliquez pour ajouter aux favoris"))
     }
 }
