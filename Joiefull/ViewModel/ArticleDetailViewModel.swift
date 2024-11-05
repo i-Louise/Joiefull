@@ -18,12 +18,12 @@ class ArticleDetailViewModel: ObservableObject {
     var article: Article
     var like: Like
     
-    private let reviewRepository: ReviewRepository
+    private let reviewRepository: ReviewRepositoryProtocol
     
     init(
         article: Article,
         like: Like,
-        reviewRepository: ReviewRepository
+        reviewRepository: ReviewRepositoryProtocol
     ) {
         self.article = article
         self.like = like
