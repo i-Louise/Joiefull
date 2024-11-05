@@ -29,19 +29,14 @@ struct ArticleListRowItem: View {
                 .frame(width: 200, height: 200)
                 .clipShape(.rect(cornerRadius: 16))
                 .accessibilityHint(Text("\(viewModel.article.picture.description)"))
-                
                 LikesView(like: viewModel.like)
-                    .padding(6)
-                    .background(Color.white)
-                    .cornerRadius(30)
-                    .padding([.bottom, .trailing], 8)
             }
             
             VStack {
                 HStack {
                     Text(viewModel.article.name)
                         .font(.body)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color.primary)
                         .frame(width: 150, alignment: .leading)
                         .lineLimit(1)
                         .truncationMode(.tail)
@@ -50,18 +45,18 @@ struct ArticleListRowItem: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.orange)
                         Text(getHumanReadableRating())
-                            .foregroundColor(.gray)
+                            .foregroundStyle(Color.primary)
                             .font(.body)
                     }
                 }
                 HStack {
                     Text("\(String(format: "%.2f", viewModel.article.price))€")
                         .font(.body)
-                        .foregroundColor(.black)
+                        .foregroundStyle(Color.secondary)
                     Spacer()
                     Text("\(String(format: "%.2f", viewModel.article.originalPrice))€")
                         .strikethrough()
-                        .foregroundColor(.gray)
+                        .foregroundStyle(Color.secondary)
                         .font(.body)
                 }
             }

@@ -22,5 +22,10 @@ struct LikesView: View {
                     .font(.body)
             }
         }
+        .padding(6)
+        .background(Color.white)
+        .cornerRadius(30)
+        .shadow(radius: 10)
+        .padding([.bottom, .trailing], 8)
     }
 }

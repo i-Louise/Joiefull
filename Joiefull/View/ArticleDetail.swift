@@ -62,10 +62,6 @@ struct ArticleDetail: View {
                             HStack {
                                 Spacer()
                                 LikesView(like: viewModel.like)
-                                    .padding(6)
-                                    .background(Color.white.opacity(0.8))
-                                    .cornerRadius(16)
-                                    .shadow(radius: 4)
                                     .padding()
                             }
                         }
@@ -82,18 +78,18 @@ struct ArticleDetail: View {
                                     .font(.title3)
                                     .foregroundColor(.orange)
                                 Text(getHumanReadableRating())
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.primary)
                                     .font(.title3)
                             }
                         }
                         HStack {
                             Text("\(String(format: "%.2f", viewModel.article.price))€")
                                 .font(.title3)
-                                .foregroundColor( .black)
+                                .foregroundStyle(Color.secondary)
                             Spacer()
                             Text("\(String(format: "%.2f", viewModel.article.originalPrice))€")
                                 .strikethrough()
-                                .foregroundColor(.gray)
+                                .foregroundStyle(Color.secondary)
                                 .font(.title3)
                         }
                             HStack {
