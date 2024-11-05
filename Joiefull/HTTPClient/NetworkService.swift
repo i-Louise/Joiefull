@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol NetworkServicing {
+protocol NetworkServiceProtocol {
     func getAllArticles() async throws -> [Article]
 }
 
-class NetworkService: NetworkServicing {
-    private let networkRequestExecutor: RequestExecutor
+class NetworkService: NetworkServiceProtocol {
+    private let networkRequestExecutor: RequestExecutorProtocol
 
-    init(networkRequestExecutor: RequestExecutor = NetworkRequestExecutor()) {
+    init(networkRequestExecutor: RequestExecutorProtocol = NetworkRequestExecutor()) {
         self.networkRequestExecutor = networkRequestExecutor
     }
     

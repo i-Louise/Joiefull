@@ -8,7 +8,7 @@
 import Foundation
 @testable import Joiefull
 
-class NetworkServiceMock: NetworkServicing {
+class NetworkServiceMock: NetworkServiceProtocol {
     var shouldFail = false
     
     func getAllArticles() async throws -> [Article] {

@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol RequestExecutor {
+protocol RequestExecutorProtocol {
     func execute(request: URLRequest) async throws -> Data
 }
 
-class NetworkRequestExecutor: RequestExecutor {
+class NetworkRequestExecutor: RequestExecutorProtocol {
     func execute(request: URLRequest) async throws -> Data {
         let (data, response) = try await URLSession.shared.data(for: request)
         

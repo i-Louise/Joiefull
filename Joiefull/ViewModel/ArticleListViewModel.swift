@@ -15,13 +15,13 @@ class ArticleListViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var showingAlert = false
     
-    private let networkService: NetworkServicing
+    private let networkService: NetworkServiceProtocol
     private let articleRepository: ArticleRepository
     private let reviewRepository: ReviewRepository
     private let likeRepository: LikeRepository
     
     init(
-        networkService: NetworkServicing = NetworkService(),
+        networkService: NetworkServiceProtocol = NetworkService(),
         articleRepository: ArticleRepository,
         reviewRepository: ReviewRepository,
         likeRepository: LikeRepository
