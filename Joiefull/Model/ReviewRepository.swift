@@ -8,7 +8,13 @@
 import Foundation
 import CoreData
 
-class ReviewRepository {
+protocol ReviewRepositoryProtocol {
+    func getReviews(articleId: Int) throws -> [Review]
+    func addReview(articleId: Int, comment: String, date: Date, rating: Int) throws
+    func getAverageRating(articleId: Int) throws -> Float?
+}
+
+class ReviewRepository: ReviewRepositoryProtocol {
     private let viewContext: NSManagedObjectContext
     
     init(viewContext: NSManagedObjectContext) {
