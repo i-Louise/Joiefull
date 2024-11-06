@@ -18,7 +18,7 @@
 		730544E52CA1D09200F77233 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E42CA1D09200F77233 /* NetworkService.swift */; };
 		730544EA2CA1D68700F77233 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E92CA1D68700F77233 /* Article.swift */; };
 		730544EF2CA1EBDA00F77233 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */; };
-		730544F42CA2078100F77233 /* ArticleListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* ArticleListRow.swift */; };
+		730544F42CA2078100F77233 /* ArticleListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544F32CA2078100F77233 /* ArticleListRowView.swift */; };
 		731F03052CD3DCF500D72C42 /* ArticleListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */; };
 		731F03082CD5543B00D72C42 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */; };
 		731F030F2CD989F000D72C42 /* LikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F030E2CD989F000D72C42 /* LikeTests.swift */; };
@@ -30,7 +30,7 @@
 		7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2262CB9543100C06F89 /* PersistenceController.swift */; };
 		7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F2282CB9552200C06F89 /* ReviewRepository.swift */; };
 		7336F22D2CB9A2D600C06F89 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336F22C2CB9A2D600C06F89 /* RatingView.swift */; };
-		7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */; };
+		7380F5B42CCBFA06006FC4F0 /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B32CCBFA06006FC4F0 /* ArticleListView.swift */; };
 		7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */; };
 		7380F5BA2CCC11FB006FC4F0 /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5B92CCC11FB006FC4F0 /* ArticleDetailViewModel.swift */; };
 		7380F5BC2CCEC876006FC4F0 /* LazyNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5BB2CCEC876006FC4F0 /* LazyNavigationLink.swift */; };
@@ -41,10 +41,10 @@
 		7380F5CA2CD13F20006FC4F0 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5C92CD13F20006FC4F0 /* LikeRepository.swift */; };
 		7380F5CC2CD14403006FC4F0 /* JoiefullAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5CB2CD14403006FC4F0 /* JoiefullAppViewModel.swift */; };
 		7380F5CE2CD15310006FC4F0 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7380F5CD2CD15310006FC4F0 /* LikesView.swift */; };
-		73A092852CA573C300385F22 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ArticleDetail.swift */; };
+		73A092852CA573C300385F22 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092842CA573C300385F22 /* ArticleDetailView.swift */; };
 		73A092872CA5753E00385F22 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092862CA5753E00385F22 /* MainView.swift */; };
 		73A092892CA61D0600385F22 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A092882CA61D0600385F22 /* NetworkError.swift */; };
-		73C815FE2CA20CC300875B2F /* ArticleListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C815FD2CA20CC300875B2F /* ArticleListRowItem.swift */; };
+		73C815FE2CA20CC300875B2F /* ArticleListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C815FD2CA20CC300875B2F /* ArticleListRowItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,7 @@
 		730544E42CA1D09200F77233 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		730544E92CA1D68700F77233 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		730544EE2CA1EBDA00F77233 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
-		730544F32CA2078100F77233 /* ArticleListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRow.swift; sourceTree = "<group>"; };
+		730544F32CA2078100F77233 /* ArticleListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRowView.swift; sourceTree = "<group>"; };
 		731F03042CD3DCF500D72C42 /* ArticleListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelTests.swift; sourceTree = "<group>"; };
 		731F03072CD5543B00D72C42 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		731F030E2CD989F000D72C42 /* LikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTests.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		7336F2262CB9543100C06F89 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		7336F2282CB9552200C06F89 /* ReviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRepository.swift; sourceTree = "<group>"; };
 		7336F22C2CB9A2D600C06F89 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
+		7380F5B32CCBFA06006FC4F0 /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		7380F5B72CCC0958006FC4F0 /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
 		7380F5B92CCC11FB006FC4F0 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		7380F5BB2CCEC876006FC4F0 /* LazyNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNavigationLink.swift; sourceTree = "<group>"; };
@@ -100,10 +100,10 @@
 		7380F5C92CD13F20006FC4F0 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
 		7380F5CB2CD14403006FC4F0 /* JoiefullAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullAppViewModel.swift; sourceTree = "<group>"; };
 		7380F5CD2CD15310006FC4F0 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
-		73A092842CA573C300385F22 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
+		73A092842CA573C300385F22 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		73A092862CA5753E00385F22 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		73A092882CA61D0600385F22 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		73C815FD2CA20CC300875B2F /* ArticleListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRowItem.swift; sourceTree = "<group>"; };
+		73C815FD2CA20CC300875B2F /* ArticleListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRowItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,10 +237,10 @@
 			isa = PBXGroup;
 			children = (
 				73A092862CA5753E00385F22 /* MainView.swift */,
-				73A092842CA573C300385F22 /* ArticleDetail.swift */,
-				7380F5B32CCBFA06006FC4F0 /* ArticleList.swift */,
-				730544F32CA2078100F77233 /* ArticleListRow.swift */,
-				73C815FD2CA20CC300875B2F /* ArticleListRowItem.swift */,
+				73A092842CA573C300385F22 /* ArticleDetailView.swift */,
+				7380F5B32CCBFA06006FC4F0 /* ArticleListView.swift */,
+				730544F32CA2078100F77233 /* ArticleListRowView.swift */,
+				73C815FD2CA20CC300875B2F /* ArticleListRowItemView.swift */,
 				7336F22C2CB9A2D600C06F89 /* RatingView.swift */,
 				7336F21F2CB8A5B700C06F89 /* ActivityViewController.swift */,
 				7380F5BB2CCEC876006FC4F0 /* LazyNavigationLink.swift */,
@@ -405,25 +405,25 @@
 			files = (
 				73A092872CA5753E00385F22 /* MainView.swift in Sources */,
 				730544EF2CA1EBDA00F77233 /* ArticleListViewModel.swift in Sources */,
-				73A092852CA573C300385F22 /* ArticleDetail.swift in Sources */,
+				73A092852CA573C300385F22 /* ArticleDetailView.swift in Sources */,
 				7336F22D2CB9A2D600C06F89 /* RatingView.swift in Sources */,
 				7336F2292CB9552200C06F89 /* ReviewRepository.swift in Sources */,
 				730544B42CA1959000F77233 /* ContentView.swift in Sources */,
 				730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */,
 				7380F5CE2CD15310006FC4F0 /* LikesView.swift in Sources */,
 				73A092892CA61D0600385F22 /* NetworkError.swift in Sources */,
-				73C815FE2CA20CC300875B2F /* ArticleListRowItem.swift in Sources */,
+				73C815FE2CA20CC300875B2F /* ArticleListRowItemView.swift in Sources */,
 				7336F2202CB8A5B700C06F89 /* ActivityViewController.swift in Sources */,
 				730544E52CA1D09200F77233 /* NetworkService.swift in Sources */,
 				7380F5BA2CCC11FB006FC4F0 /* ArticleDetailViewModel.swift in Sources */,
 				7380F5CC2CD14403006FC4F0 /* JoiefullAppViewModel.swift in Sources */,
 				7380F5CA2CD13F20006FC4F0 /* LikeRepository.swift in Sources */,
-				7380F5B42CCBFA06006FC4F0 /* ArticleList.swift in Sources */,
+				7380F5B42CCBFA06006FC4F0 /* ArticleListView.swift in Sources */,
 				7380F5C82CD12188006FC4F0 /* Like.swift in Sources */,
 				7336F2272CB9543100C06F89 /* PersistenceController.swift in Sources */,
 				7380F5B82CCC0958006FC4F0 /* ArticleRepository.swift in Sources */,
 				730544EA2CA1D68700F77233 /* Article.swift in Sources */,
-				730544F42CA2078100F77233 /* ArticleListRow.swift in Sources */,
+				730544F42CA2078100F77233 /* ArticleListRowView.swift in Sources */,
 				7336F2232CB9490000C06F89 /* Joiefull.xcdatamodeld in Sources */,
 				7380F5BC2CCEC876006FC4F0 /* LazyNavigationLink.swift in Sources */,
 				730544B22CA1959000F77233 /* JoiefullApp.swift in Sources */,

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ArticleList: View {
+struct ArticleListView: View {
     @ObservedObject var viewModel: ArticleListViewModel
     @Binding var selectedArticle: Article?
     
     var body: some View {
         List {
             ForEach(viewModel.categories.elements, id: \.key) { category, articles in
-                ArticleListRow(
+                ArticleListRowView(
                     articleListViewModel: viewModel,
                     categoryName: category,
                     articles: articles,
@@ -32,7 +32,7 @@ struct ArticleList: View {
 #Preview {
     @State var selectedArticle: Article? = nil
     
-    return ArticleList(
+    return ArticleListView(
         viewModel: ArticleListViewModel(
             networkService: NetworkService(),
             articleRepository: ArticleRepository(),

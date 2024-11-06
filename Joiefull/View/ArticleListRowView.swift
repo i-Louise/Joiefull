@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArticleListRow: View {
+struct ArticleListRowView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var articleListViewModel: ArticleListViewModel
@@ -30,21 +30,21 @@ struct ArticleListRow: View {
                         if horizontalSizeClass == .compact {
                             NavigationLink {
                                 LazyNavigationLink(
-                                    ArticleDetail(
+                                    ArticleDetailView(
                                         viewModel: articleListViewModel.getArticleDetailViewModel(
                                             article: article
                                         )
                                     )
                                 )
                             } label: {
-                                ArticleListRowItem(
+                                ArticleListRowItemView(
                                     viewModel: articleListViewModel.getArticleListRowItemViewModel(
                                         article: article
                                     )
                                 )
                             }
                         } else {
-                            ArticleListRowItem(
+                            ArticleListRowItemView(
                                 viewModel: articleListViewModel.getArticleListRowItemViewModel(
                                     article: article
                                 ))
@@ -81,7 +81,7 @@ struct ArticleListRow: View {
         )
     ]
     
-    return ArticleListRow(
+    return ArticleListRowView(
         articleListViewModel: ArticleListViewModel(
             articleRepository: ArticleRepository(),
             reviewRepository: ReviewRepository(

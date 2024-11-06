@@ -1,5 +1,5 @@
 //
-//  ArticleDetail.swift
+//  ArticleDetailView.swift
 //  Joiefull
 //
 //  Created by Louise Ta on 26/09/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArticleDetail: View {
+struct ArticleDetailView: View {
     @ObservedObject var viewModel: ArticleDetailViewModel
     
     @State private var isShareSheetShowing = false
@@ -168,7 +168,7 @@ struct ArticleDetail: View {
             description: "A casual t-shirt"
         )
     )
-    return ArticleDetail(
+    return ArticleDetailView(
         viewModel: ArticleDetailViewModel(
             article: testArticle,
             like: Like(likes: 42, isLiked: false),

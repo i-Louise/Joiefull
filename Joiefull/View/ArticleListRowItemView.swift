@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArticleListRowItem: View {
+struct ArticleListRowItemView: View {
     @ObservedObject var viewModel: ArticleListRowItemViewModel
         
     var body: some View {
@@ -91,7 +91,7 @@ struct ArticleListRowItem: View {
         picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
             description: "A casual t-shirt")
     )
-    return ArticleListRowItem(
+    return ArticleListRowItemView(
         viewModel: ArticleListRowItemViewModel(
             article: testArticle,
             like: Like(likes: 42, isLiked: false),

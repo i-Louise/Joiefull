@@ -21,7 +21,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             HStack {
-                ArticleList(
+                ArticleListView(
                     viewModel: articleListViewModel,
                     selectedArticle: $selectedArticle
                 )
@@ -54,7 +54,7 @@ private struct ArticleDetailSideView: View {
                     }
                     Spacer()
                 }
-                ArticleDetail(
+                ArticleDetailView(
                     viewModel: articleListViewModel.getArticleDetailViewModel(
                         article: article
                     )
