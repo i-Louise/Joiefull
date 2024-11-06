@@ -12,7 +12,7 @@ class ArticleDetailViewModel: ObservableObject {
     @Published var averageRating: Float? = nil
     @Published var userRating: Int = 0
     @Published var userComment: String = ""
-    @Published var errorMessage: String? = nil
+    @Published var alertMessage: String? = nil
     @Published var showingAlert = false
     
     var article: Article
@@ -35,14 +35,14 @@ class ArticleDetailViewModel: ObservableObject {
         do {
             averageRating = try reviewRepository.getAverageRating(articleId: article.id)
         } catch {
-            errorMessage = "Une erreur s'est produite lors de la récupération des derniers avis. Veuillez réessayer ultérieurement."
+            alertMessage = "Une erreur s'est produite lors de la récupération des derniers avis. Veuillez réessayer ultérieurement."
             showingAlert = true
         }
     }
     
     func addReview() {
         guard userRating > 0 else {
-            errorMessage = "Veuillez renseigner une notation"
+            alertMessage = "Veuillez renseigner une notation"
             showingAlert = true
             return
         }
@@ -55,9 +55,11 @@ class ArticleDetailViewModel: ObservableObject {
             )
             self.userRating = 0 
             self.userComment = ""
+            alertMessage = "Votre avis a été ajouté avec succès !"
         } catch {
-            errorMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
+            alertMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
             showingAlert = true
         }
     }
+    
 }

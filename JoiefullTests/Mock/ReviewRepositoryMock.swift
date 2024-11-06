@@ -10,7 +10,7 @@ import Foundation
 
 class ReviewRepositoryMock: ReviewRepositoryProtocol {
     private var reviews: [Review] = []
-    var fakeAverageRating: Float? = nil
+    var fakeAverageRating: Float? = 4
     
     func getReviews(articleId: Int) throws -> [Review] {
         return reviews

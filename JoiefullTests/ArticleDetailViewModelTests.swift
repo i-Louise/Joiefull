@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import CoreData
 import XCTest
 @testable import Joiefull
 
 final class ArticleDetailViewModelTests: XCTestCase {
     
-    private let reviewRepositoryMock = ReviewRepositoryMock()
+    private var viewModel: ArticleDetailViewModel!
+    private var reviewRepositoryMock = ReviewRepositoryMock()
 
     private let fakeArticle = Article(
         id: 0,
@@ -52,6 +54,17 @@ final class ArticleDetailViewModelTests: XCTestCase {
         XCTAssertEqual(underTest.averageRating, 4.2)
     }
 
-    // Given a nil user rating, When adding a review, Then ensure the error message is set and alert is shown and no review is stored
-    // Given an article and its review, When adding that review, Then ensure the review is stored correctly and rating and comment are reset
+    // Given a user rating equal to 0, When adding a review, Then ensure the error message is set and alert is shown and no review is stored
+    func test_userRatingEqualToZeroErrorMessage() {
+        // Given
+        let underTest = ArticleDetailViewModel(article: fakeArticle, like: fakeLike, reviewRepository: reviewRepositoryMock)
+        underTest.userRating = 0
+        
+        // When
+        underTest.addReview()
+        
+        // Then
+        XCTAssertEqual(underTest.alertMessage, "Veuillez renseigner une notation")
+        XCTAssertTrue(underTest.showingAlert)
+    }
 }
