@@ -203,8 +203,8 @@
 		730544DD2CA1C5E400F77233 /* HTTPClient */ = {
 			isa = PBXGroup;
 			children = (
-				730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */,
 				730544E42CA1D09200F77233 /* NetworkService.swift */,
+				730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */,
 				73A092882CA61D0600385F22 /* NetworkError.swift */,
 			);
 			path = HTTPClient;
