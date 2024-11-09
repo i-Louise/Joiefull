@@ -30,7 +30,7 @@ struct ArticleListView: View {
 }
 
 #Preview {
-    @State var selectedArticle: Article? = nil
+    @Previewable @State var selectedArticle: Article? = nil
     
     return ArticleListView(
         viewModel: ArticleListViewModel(

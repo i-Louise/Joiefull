@@ -64,7 +64,7 @@ struct ArticleListRowView: View {
 }
 
 #Preview {
-    @State var selectedArticle: Article? = nil
+    @Previewable @State var selectedArticle: Article? = nil
     
     let testArticles = [
         Article(

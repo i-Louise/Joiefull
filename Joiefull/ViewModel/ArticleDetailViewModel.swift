@@ -10,8 +10,6 @@ import CoreData
 
 class ArticleDetailViewModel: ObservableObject {
     @Published var averageRating: Float? = nil
-    @Published var userRating: Int = 0
-    @Published var userComment: String = ""
     @Published var alertMessage: String? = nil
     @Published var showingAlert = false
     
@@ -40,7 +38,7 @@ class ArticleDetailViewModel: ObservableObject {
         }
     }
     
-    func addReview() {
+    func addReview(userRating: Int, userComment: String, onSuccess: () -> Void) {
         guard userRating > 0 else {
             alertMessage = "Veuillez renseigner une notation"
             showingAlert = true
@@ -53,9 +51,8 @@ class ArticleDetailViewModel: ObservableObject {
                 date: Date.now,
                 rating: userRating
             )
-            self.userRating = 0 
-            self.userComment = ""
             alertMessage = "Votre avis a été ajouté avec succès !"
+            onSuccess()
         } catch {
             alertMessage = "Une erreur est survenue lors de l'ajout. Veuillez réessayer"
             showingAlert = true

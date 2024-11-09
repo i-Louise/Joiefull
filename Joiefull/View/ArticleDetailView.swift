@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ArticleDetailView: View {
     @ObservedObject var viewModel: ArticleDetailViewModel
-    
+    @State private var userRating: Int = 0
+    @State private var userComment: String = ""
     @State private var isShareSheetShowing = false
     
     var body: some View {
@@ -109,7 +110,7 @@ struct ArticleDetailView: View {
                                 Image(systemName: "person.circle")
                                     .font(.title)
                                     .accessibilityHidden(true)
-                                RatingView(rating: $viewModel.userRating)
+                                RatingView(rating: $userRating)
                                     .padding(4)
                                 Spacer()
                             }
@@ -117,7 +118,7 @@ struct ArticleDetailView: View {
                                 .font(.subheadline)
                                 .foregroundStyle(Color.secondary)
                             
-                            TextEditor(text: $viewModel.userComment)
+                            TextEditor(text: $userComment)
                                 .foregroundStyle(.secondary)
                                 .frame(height: frame.height / 8)
                                 .padding(.horizontal)
@@ -128,7 +129,10 @@ struct ArticleDetailView: View {
                                 .accessibilityElement()
                                 .accessibilityLabel("Rédigez le commentaire ici")
                             Button(action: {
-                                viewModel.addReview()
+                                viewModel.addReview(userRating: userRating, userComment: userComment) {
+                                    self.userRating = 0
+                                    self.userComment = ""
+                                }
                                 viewModel.updateAverageRating()
                             }) {
                                 Text("Send")
