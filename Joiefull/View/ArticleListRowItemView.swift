@@ -52,7 +52,7 @@ struct ArticleListRowItemView: View {
                             .font(.body)
                     }
                     .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Notation moyenne de \(getHumanReadableRating()) étoiles sur 5")
+                    .accessibilityValue("\(getHumanReadableRating()) étoiles sur 5")
                 }
                 HStack {
                     Text("\(String(format: "%.2f", viewModel.article.price))€")
@@ -65,7 +65,7 @@ struct ArticleListRowItemView: View {
                         .font(.body)
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(Text("Le prix actuel est de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
+                .accessibilityLabel(Text("Prix de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
             }
         }
         .padding()

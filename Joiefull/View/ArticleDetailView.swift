@@ -37,6 +37,7 @@ struct ArticleDetailView: View {
                         .clipShape(.rect(cornerRadius: 25))
                         .accessibilityElement()
                         .accessibilitySortPriority(3)
+                        .accessibilityAddTraits(.isImage)
                         .accessibilityHint(Text("\(viewModel.article.picture.description)"))
                         
                         VStack {
@@ -90,22 +91,25 @@ struct ArticleDetailView: View {
                             }
                             .accessibilityElement(children: .ignore)
                             .accessibilitySortPriority(1)
-                            .accessibilityLabel("L'article a une moyenne de \(getHumanReadableRating()) étoiles sur 5")
+                            .accessibilityLabel("Note")
+                            .accessibilityValue(" \(getHumanReadableRating()) étoiles sur 5")
                         }
                         HStack {
                             Text("\(String(format: "%.2f", viewModel.article.price))€")
                                 .font(.title3)
                                 .foregroundStyle(Color.secondary)
+                                .accessibilityLabel("Prix")
+                                .accessibilityValue(Text("\(String(format: "%.2f", viewModel.article.price))€"))
                             Spacer()
                             Text("\(String(format: "%.2f", viewModel.article.originalPrice))€")
                                 .strikethrough()
                                 .foregroundStyle(Color.secondary)
                                 .font(.title3)
+                                .accessibilityLabel("Prix d'origine")
+                                .accessibilityValue(Text("\(String(format: "%.2f", viewModel.article.originalPrice))€"))
                         }
-                        .accessibilityElement(children: .ignore)
+                        //.accessibilityElement(children: .ignore)
                         .accessibilitySortPriority(2)
-                        .accessibilityLabel(Text("Le prix actuel est de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
-                        
                             HStack {
                                 Image(systemName: "person.circle")
                                     .font(.title)
@@ -135,7 +139,7 @@ struct ArticleDetailView: View {
                                 }
                                 viewModel.updateAverageRating()
                             }) {
-                                Text("Send")
+                                Text("Envoyer")
                                     .padding()
                                     .frame(maxWidth: .infinity)
                                     .background(Color.orange)

@@ -21,7 +21,7 @@ struct LikesView: View {
                 Text("\(like.totalLikes)")
                     .font(.body)
                     .accessibilityLabel("Favoris")
-                    .accessibilityValue(Text("\(like.totalLikes) utilisateurs l'ont ajouté en favoris"))
+                    .accessibilityValue(Text("\(like.totalLikes)"))
             }
         }
         .padding(6)
