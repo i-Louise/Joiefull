@@ -62,7 +62,6 @@ private struct ArticleDetailSideView: View {
             }
             .frame(maxWidth: UIScreen.main.bounds.width / 3)
             .transition(.slide)
-            .padding()
         }
     }
 }

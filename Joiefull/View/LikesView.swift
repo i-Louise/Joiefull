@@ -20,6 +20,7 @@ struct LikesView: View {
                     .foregroundColor(like.isLiked ? .red : .black)
                 Text("\(like.totalLikes)")
                     .font(.body)
+                    .foregroundStyle(.black)
                     .accessibilityLabel("Favoris")
                     .accessibilityValue(Text("\(like.totalLikes)"))
             }

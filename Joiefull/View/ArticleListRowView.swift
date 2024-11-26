@@ -48,9 +48,7 @@ struct ArticleListRowView: View {
                                 viewModel: articleListViewModel.getArticleListRowItemViewModel(
                                     article: article
                                 ))
-                                .padding(2)
                                 .background(selectedArticle?.id == article.id ? Color.blue.opacity(0.5) : Color.clear)
-                                .cornerRadius(16)
                                 .onTapGesture {
                                     print("selected \(article.name)")
                                     selectedArticle = article

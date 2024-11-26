@@ -68,7 +68,7 @@ struct ArticleListRowItemView: View {
                 .accessibilityLabel(Text("Prix de \(String(format: "%.2f", viewModel.article.price))€ et était de \(String(format: "%.2f", viewModel.article.originalPrice))€"))
             }
         }
-        .padding()
+        .padding(5)
         .accessibilityAddTraits(.allowsDirectInteraction)
     }
     
@@ -91,7 +91,7 @@ struct ArticleListRowItemView: View {
         picture: Article.Picture(url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/accessories/3.jpg",
             description: "A casual t-shirt")
     )
-    return ArticleListRowItemView(
+    ArticleListRowItemView(
         viewModel: ArticleListRowItemViewModel(
             article: testArticle,
             like: Like(likes: 42, isLiked: false),
