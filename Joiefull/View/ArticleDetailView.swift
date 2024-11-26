@@ -108,7 +108,6 @@ struct ArticleDetailView: View {
                                 .accessibilityLabel("Prix d'origine")
                                 .accessibilityValue(Text("\(String(format: "%.2f", viewModel.article.originalPrice))€"))
                         }
-                        //.accessibilityElement(children: .ignore)
                         .accessibilitySortPriority(2)
                             HStack {
                                 Image(systemName: "person.circle")
@@ -150,6 +149,13 @@ struct ArticleDetailView: View {
                 }
                 .padding(15)
                 .accessibilityElement(children: .contain)
+                .alert(isPresented: $viewModel.showingAlert) {
+                    Alert(
+                        title: Text("Important message"),
+                        message: Text(viewModel.alertMessage ?? "no error message"),
+                        dismissButton: .default(Text("Ok"))
+                    )
+                }
             }
         }
     }

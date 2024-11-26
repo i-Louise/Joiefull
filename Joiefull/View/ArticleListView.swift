@@ -26,6 +26,13 @@ struct ArticleListView: View {
         .onAppear {
             viewModel.fetchArticles {}
         }
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(
+                title: Text("An error occur"),
+                message: Text(viewModel.errorMessage ?? "no error message"),
+                dismissButton: .default(Text("Ok"))
+            )
+        }
     }
 }
 
