@@ -12,10 +12,6 @@ class ReviewRepositoryMock: ReviewRepositoryProtocol {
     private var reviews: [Review] = []
     var fakeAverageRating: Float? = 4
     
-    func getReviews(articleId: Int) throws -> [Review] {
-        return reviews
-    }
-    
     func addReview(articleId: Int, comment: String, date: Date, rating: Int) throws {
         let review = Review()
         review.articleId = Int64(articleId)

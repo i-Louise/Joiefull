@@ -9,7 +9,6 @@ import Foundation
 import CoreData
 
 protocol ReviewRepositoryProtocol {
-    func getReviews(articleId: Int) throws -> [Review]
     func addReview(articleId: Int, comment: String, date: Date, rating: Int) throws
     func getAverageRating(articleId: Int) throws -> Float?
 }
@@ -21,7 +20,7 @@ class ReviewRepository: ReviewRepositoryProtocol {
         self.viewContext = viewContext
     }
     
-    func getReviews(articleId: Int) throws -> [Review] {
+    private func getReviews(articleId: Int) throws -> [Review] {
         let request = Review.fetchRequest()
         request.predicate = NSPredicate(format: "articleId == %ld", Int64(articleId))
         request.sortDescriptors = [NSSortDescriptor(SortDescriptor<Review>(\.date, order: .reverse))]
