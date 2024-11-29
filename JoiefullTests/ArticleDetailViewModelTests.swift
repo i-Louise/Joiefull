@@ -63,11 +63,15 @@ final class ArticleDetailViewModelTests: XCTestCase {
         let underTest = ArticleDetailViewModel(article: fakeArticle, like: fakeLike, reviewRepository: reviewRepositoryMock)
         let userRating = 0
         let userComment = "No comment"
+        var isSuccessCalled = false
         
         // When
-        underTest.addReview(userRating: userRating, userComment: userComment, onSuccess: {})
+        underTest.addReview(userRating: userRating, userComment: userComment, onSuccess: {
+            isSuccessCalled = true
+        })
         
         // Then
+        XCTAssertFalse(isSuccessCalled)
         XCTAssertEqual(underTest.alertMessage, "Veuillez renseigner une notation")
         XCTAssertTrue(underTest.showingAlert)
     }
