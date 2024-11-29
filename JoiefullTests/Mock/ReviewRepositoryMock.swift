@@ -9,16 +9,11 @@ import Foundation
 @testable import Joiefull
 
 class ReviewRepositoryMock: ReviewRepositoryProtocol {
-    private var reviews: [Review] = []
+    private(set) var reviewsCount: Int = 0
     var fakeAverageRating: Float? = 4
     
     func addReview(articleId: Int, comment: String, date: Date, rating: Int) throws {
-        let review = Review()
-        review.articleId = Int64(articleId)
-        review.comment = comment
-        review.date = date
-        review.rating = Int16(rating)
-        reviews.append(review)
+        reviewsCount += 1
     }
     
     func getAverageRating(articleId: Int) throws -> Float? {
