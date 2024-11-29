@@ -12,8 +12,6 @@
 		730544B62CA1959200F77233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730544B52CA1959200F77233 /* Assets.xcassets */; };
 		730544B92CA1959200F77233 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730544B82CA1959200F77233 /* Preview Assets.xcassets */; };
 		730544C32CA1959200F77233 /* JoiefullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544C22CA1959200F77233 /* JoiefullTests.swift */; };
-		730544CD2CA1959200F77233 /* JoiefullUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544CC2CA1959200F77233 /* JoiefullUITests.swift */; };
-		730544CF2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544CE2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift */; };
 		730544E32CA1D06800F77233 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */; };
 		730544E52CA1D09200F77233 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E42CA1D09200F77233 /* NetworkService.swift */; };
 		730544EA2CA1D68700F77233 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730544E92CA1D68700F77233 /* Article.swift */; };
@@ -56,13 +54,6 @@
 			remoteGlobalIDString = 730544AD2CA1959000F77233;
 			remoteInfo = Joiefull;
 		};
-		730544C92CA1959200F77233 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 730544A62CA1959000F77233 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 730544AD2CA1959000F77233;
-			remoteInfo = Joiefull;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -73,9 +64,6 @@
 		730544B82CA1959200F77233 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		730544BE2CA1959200F77233 /* JoiefullTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JoiefullTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		730544C22CA1959200F77233 /* JoiefullTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullTests.swift; sourceTree = "<group>"; };
-		730544C82CA1959200F77233 /* JoiefullUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JoiefullUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		730544CC2CA1959200F77233 /* JoiefullUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullUITests.swift; sourceTree = "<group>"; };
-		730544CE2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiefullUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		730544E22CA1D06800F77233 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
 		730544E42CA1D09200F77233 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		730544E92CA1D68700F77233 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -126,13 +114,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		730544C52CA1959200F77233 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,7 +123,6 @@
 				7336F2212CB9490000C06F89 /* Joiefull.xcdatamodeld */,
 				730544B02CA1959000F77233 /* Joiefull */,
 				730544C12CA1959200F77233 /* JoiefullTests */,
-				730544CB2CA1959200F77233 /* JoiefullUITests */,
 				730544AF2CA1959000F77233 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,7 +132,6 @@
 			children = (
 				730544AE2CA1959000F77233 /* Joiefull.app */,
 				730544BE2CA1959200F77233 /* JoiefullTests.xctest */,
-				730544C82CA1959200F77233 /* JoiefullUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,15 +173,6 @@
 				731F03142CD9A18100D72C42 /* ArticleDetailViewModelTests.swift */,
 			);
 			path = JoiefullTests;
-			sourceTree = "<group>";
-		};
-		730544CB2CA1959200F77233 /* JoiefullUITests */ = {
-			isa = PBXGroup;
-			children = (
-				730544CC2CA1959200F77233 /* JoiefullUITests.swift */,
-				730544CE2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift */,
-			);
-			path = JoiefullUITests;
 			sourceTree = "<group>";
 		};
 		730544DD2CA1C5E400F77233 /* HTTPClient */ = {
@@ -313,24 +283,6 @@
 			productReference = 730544BE2CA1959200F77233 /* JoiefullTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		730544C72CA1959200F77233 /* JoiefullUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 730544D82CA1959200F77233 /* Build configuration list for PBXNativeTarget "JoiefullUITests" */;
-			buildPhases = (
-				730544C42CA1959200F77233 /* Sources */,
-				730544C52CA1959200F77233 /* Frameworks */,
-				730544C62CA1959200F77233 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				730544CA2CA1959200F77233 /* PBXTargetDependency */,
-			);
-			name = JoiefullUITests;
-			productName = JoiefullUITests;
-			productReference = 730544C82CA1959200F77233 /* JoiefullUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -345,10 +297,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					730544BD2CA1959200F77233 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = 730544AD2CA1959000F77233;
-					};
-					730544C72CA1959200F77233 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 730544AD2CA1959000F77233;
 					};
@@ -372,7 +320,6 @@
 			targets = (
 				730544AD2CA1959000F77233 /* Joiefull */,
 				730544BD2CA1959200F77233 /* JoiefullTests */,
-				730544C72CA1959200F77233 /* JoiefullUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -389,13 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		730544BC2CA1959200F77233 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		730544C62CA1959200F77233 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,15 +391,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		730544C42CA1959200F77233 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				730544CF2CA1959200F77233 /* JoiefullUITestsLaunchTests.swift in Sources */,
-				730544CD2CA1959200F77233 /* JoiefullUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -467,11 +398,6 @@
 			isa = PBXTargetDependency;
 			target = 730544AD2CA1959000F77233 /* Joiefull */;
 			targetProxy = 730544BF2CA1959200F77233 /* PBXContainerItemProxy */;
-		};
-		730544CA2CA1959200F77233 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 730544AD2CA1959000F77233 /* Joiefull */;
-			targetProxy = 730544C92CA1959200F77233 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -689,38 +615,6 @@
 			};
 			name = Release;
 		};
-		730544D92CA1959200F77233 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = louise.JoiefullUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Joiefull;
-			};
-			name = Debug;
-		};
-		730544DA2CA1959200F77233 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = louise.JoiefullUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Joiefull;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -747,15 +641,6 @@
 			buildConfigurations = (
 				730544D62CA1959200F77233 /* Debug */,
 				730544D72CA1959200F77233 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		730544D82CA1959200F77233 /* Build configuration list for PBXNativeTarget "JoiefullUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				730544D92CA1959200F77233 /* Debug */,
-				730544DA2CA1959200F77233 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
