@@ -75,4 +75,22 @@ final class ArticleDetailViewModelTests: XCTestCase {
         XCTAssertEqual(underTest.alertMessage, "Veuillez renseigner une notation")
         XCTAssertTrue(underTest.showingAlert)
     }
+    
+    // Given a valid user rating, When adding a review, Then ensure the review is added
+    func test_givenValidUserRating_whenAddingReview_thenEnsureReviewIsAdded() {
+        // Given
+        let underTest = ArticleDetailViewModel(article: fakeArticle, like: fakeLike, reviewRepository: reviewRepositoryMock)
+        let userRating = 5
+        let userComment = "No comment"
+        var isSuccessCalled = false
+        
+        // When
+        underTest.addReview(userRating: userRating, userComment: userComment, onSuccess: {
+            isSuccessCalled = true
+        })
+        
+        // Then
+        XCTAssertTrue(isSuccessCalled)
+        XCTAssertEqual(reviewRepositoryMock.reviewsCount, 1)
+    }
 }
