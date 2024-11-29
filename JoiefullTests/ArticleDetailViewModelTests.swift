@@ -12,8 +12,11 @@ import XCTest
 
 final class ArticleDetailViewModelTests: XCTestCase {
     
-    private var viewModel: ArticleDetailViewModel!
-    private var reviewRepositoryMock = ReviewRepositoryMock()
+    private var reviewRepositoryMock: ReviewRepositoryMock!
+    
+    override func setUp() {
+        reviewRepositoryMock = ReviewRepositoryMock()
+    }
 
     private let fakeArticle = Article(
         id: 0,
